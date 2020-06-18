@@ -1,6 +1,6 @@
 # Name
 
-##                               IT Inventory Management - "Count IT": 
+##.                               IT Inventory Management - "Count IT"
 
 
 # Project Overview
