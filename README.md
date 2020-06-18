@@ -1,7 +1,8 @@
-# IT Inventory Management - Count IT: 
+# IT Inventory Management - "Count IT": 
 
 
 # Project Overview
+
 Building a website app called "IT Inventory Management - Count IT" to aid the with the inventory management with the IT deppartment from my former employer and any other company who wants to have an updated count the IT equipment. This project will be built with Django.
 
 
@@ -9,16 +10,23 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
  - [ ] add items to the inventoty
  - [ ] delete add items to the inventoty
+ 
  ### add a message if item is low or out of stoke
+ 
  - [ ] have an indicator that alert when an item is in the red zone meaning need to be orderd 
+ 
  ### Report 
+ 
  - [ ] Create a report list of items that need to ordered
  - [ ] Create a report of the whole inventory to share with accounting and other managers 
+ 
   ### Login
+  
  - [ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
    
  
 # Data Models
+
 1 create django project
 2. create models
    - [ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
@@ -38,6 +46,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 # Schedule
 
 ### Week 1
+
 1 create django project
 2. create models
    - [ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
@@ -55,9 +64,18 @@ delete add items to the inventoty
 
 
 ### Week 3
+
   - [ ] CSS Style, try Materilize or Bootstrap check it is responsive
   - [ ] reminder  to commit each time I have completed a task 
-  
+
+
+# Technology used:
+
+- Python
+- Django
+- JavaScript
+- HTML & CSS
+
 # Resources:
 
   - Basic writing and formatting syntax = https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
