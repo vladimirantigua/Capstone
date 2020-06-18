@@ -7,22 +7,22 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
 # Functionality
 
- [ ] add items to the inventoty
- [ ] delete add items to the inventoty
+ -[ ] add items to the inventoty
+ -[ ] delete add items to the inventoty
  ### add a message if item is low or out of stoke
-   [ ] have an indicator that alert when an item is in the red zone meaning need to be orderd 
+ -[ ] have an indicator that alert when an item is in the red zone meaning need to be orderd 
  ### Report 
-   [ ] Create a report list of items that need to ordered
-   [ ] Create a report of the whole inventory to share with accounting and other managers 
+ -[ ] Create a report list of items that need to ordered
+ -[ ] Create a report of the whole inventory to share with accounting and other managers 
   ### Login
-   [ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
+ -[ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
    
  
 # Data Models
 1 create django project
 2. create models
-   [ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
-   [ ] item amount 
+   -[ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
+   -[ ] item amount 
 3. app.py
 4. url.py
 
@@ -38,23 +38,23 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 ### Week 1
 1 create django project
 2. create models
-   [ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
-   [ ] item amount 
+   -[ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
+   -[ ] item amount 
 3. app.py
 4. url.py
-   [ ] reminder  to commit each time I have completed a task 
+   -[ ] reminder  to commit each time I have completed a task 
 
 ### Week 2
 
 add items to the inventoty
 delete add items to the inventoty
-[ ] reminder  to commit each time I have completed a task 
+-[ ] reminder  to commit each time I have completed a task 
 
 
 
 ### Week 3
-  [ ] CSS Style, try Materilize or Bootstrap check it is responsive
-  [ ] reminder  to commit each time I have completed a task 
+  -[ ] CSS Style, try Materilize or Bootstrap check it is responsive
+  -[ ] reminder  to commit each time I have completed a task 
   
 # Resources:
 
