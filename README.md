@@ -7,8 +7,8 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
 # Functionality
 
- [] add items to the inventoty
- [] delete add items to the inventoty
+ [ ] add items to the inventoty
+ [ ] delete add items to the inventoty
  ### add a message if item is low or out of stoke
    [] have an indicator that alert when an item is in the red zone meaning need to be orderd 
  ### Report 
