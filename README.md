@@ -78,7 +78,7 @@ delete add items to the inventoty
   - How to convert Excel file data into a JSON object by using JavaScript = 
    https://levelup.gitconnected.com/how-to-convert-excel-file-into-json-object-by-using-javascript-9e95532d47c5
    
-  -
+  - Use the tool on this page to convert CSV data to JSON =  https://www.convertcsv.com/csv-to-json.htm
   -
   -
   -
