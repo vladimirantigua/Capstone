@@ -74,9 +74,15 @@ delete add items to the inventoty
   - Managing Cron Jobs Using Python = https://code.tutsplus.com/tutorials/managing-cron-jobs-using-python--cms-       28231 via @tutsplus 
   
   - Scheduling Execution of Python Scripts using cron = https://www.youtube.com/watch?v=Q2CNZGEH59Q
-  - 
+  
+  - How to convert Excel file data into a JSON object by using JavaScript = 
+   https://levelup.gitconnected.com/how-to-convert-excel-file-into-json-object-by-using-javascript-9e95532d47c5
+   
   -
   -
+  -
+  -
+  
   
 
   
