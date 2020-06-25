@@ -1,7 +1,7 @@
 # Name
 
 
-<p align="center">              "Count IT" - IT Inventory Management  </p>
+<H1 align="center">              "Count IT" - IT Inventory Management  </H1>
 
 
 
@@ -28,36 +28,59 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   
  - [ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
    
- 
+
 # Data Models
 
-1 create django project
-2. create models
-   - [ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
-   - [ ] item amount 
-3. app.py
-4. url.py
+1. create models
+
+     ## equipment
+       - [ ] name of the IT equipment 
+       - [ ] equipment model#
+       - [ ] puchase date
+       - [ ] expiration date
+      ## user
+        - [ ] login(email adress)
+        - [ ] password
+
+  
 
 
-# Future features:
+# Template
+  ## display quantity
+  ## equipment
+       - [ ] name of the IT equipment 
+       - [ ] equipment model#
+       - [ ] puchase date
+       - [ ] expiration date
+  ## user
+        - [ ] login(email adress)
+        - [ ] password
 
-- [ ] add Cron to send an automated email reminder of the inventory levels each day to the manage
-- [ ] add a excel to json converter to import the inventory list from accounting into the Web app database by uploading it or drag and drop
 
- - [ ] add some charts showing the inventory levels 
+
 
 
 # Schedule
 
+
 ### Week 1
 
-1 create django project
-2. create models
-   - [ ] add the different fields ( such as computers models, names, warranty expiration for the computer and monitors and tables
-   - [ ] item amount 
-3. app.py
-4. url.py
+ ## equipment
+       - [ ] name of the IT equipment 
+       - [ ] equipment model#
+       - [ ] puchase date
+       - [ ] expiration date
+ ## user
+        - [ ] login(email adress)
+        - [ ] password
+        
 - [ ] reminder  to commit each time I have completed a task 
+
+# app.py
+# url.py
+# view.p
+  - [ ] display quantity
+
 
 ### Week 2
 
@@ -70,7 +93,15 @@ delete add items to the inventoty
 ### Week 3
 
   - [ ] CSS Style, try Materilize or Bootstrap check it is responsive
-  - [ ] reminder  to commit each time I have completed a task 
+  - [ ] reminder to commit each time I have completed a task 
+
+
+# Future features:
+
+- [ ] add Cron to send an automated email reminder of the inventory levels each day to the manage
+- [ ] add a excel to json converter to import the inventory list from accounting into the Web app database by uploading it or drag and drop
+
+- [ ] add some charts showing the inventory levels 
 
 
 # Technology used:
