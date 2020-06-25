@@ -1,7 +1,7 @@
 # Name
 
 
-##                               IT Inventory Management - "Count IT"
+<p align="center">              "Count IT" - IT Inventory Management  </p>
 
 
 
