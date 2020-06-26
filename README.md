@@ -132,6 +132,18 @@ delete add items to the inventoty
    https://levelup.gitconnected.com/how-to-convert-excel-file-into-json-object-by-using-javascript-9e95532d47c5
    
   - Use the tool on this page to convert CSV data to JSON =  https://www.convertcsv.com/csv-to-json.htm
+  
+  - Reading xlsx files with python
+     https://stackoverflow.com/questions/16888888/how-to-read-a-xlsx-file-using-the-pandas-library-in-ipython
+     https://stackoverflow.com/questions/2942889/reading-parsing-excel-xls-files-with-python
+     Stack OverflowStack Overflow
+     How to read a .xlsx file using the pandas Library in iPython?
+     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All I could do up until now is: import    
+     pandas as pd data = pd.ExcelFile("File Name") No...
+     Stack OverflowStack Overflow
+     Reading/parsing Excel (xls) files with Python
+     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported by default in Python   
+     to do this task?
 
   
   
