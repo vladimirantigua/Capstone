@@ -12,104 +12,102 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
 # Functionality
 
- - [ ] add items to the inventoty
- - [ ] delete add items to the inventoty
- 
- ### add a message if item is low or out of stoke
- 
- - [ ] have an indicator that alert when an item is in the red zone meaning need to be orderd 
- 
- ### Report 
- 
- - [ ] Create a report list of items that need to ordered
- - [ ] Create a report of the whole inventory to share with accounting and other managers 
+  - [ ] page list all the inventory items 
+  - [ ] page create inventory items
+  - [ ] page edit/update inventory items
+  - [ ] delete all the create all the inventory items
+  - [ ] retrieve /search inventory items
+
+  ### Report Page color coded add a message if item is low or out of stoke
+  - [ ] Create a page that have the following functionalities:
+   - [ ] page that will have all the items listed in the following order: IT items with the lower quantity at the top
+     - [ ] add color code to the items quantity: RED = if item is has 0 quantity. YELLOW = if item has quantity of 40. GREEN = item quantity above 50
+   - [ ] Create a report list of items that need to ordered
+   - [ ] Create a report of the whole inventory to share with accounting and other managers 
+     - [ ] setup an email notification send to the IT manager and IT admin responsible for the inventory management about daily inventory levels
+     - [ ] have a message on the profile page or the user homepage with a notification
  
   ### Login
-  
- - [ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
+  - [ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
+    - [ ] Matthew suggest look the user management sytems he demo in class to use as an example to build my user management systems for my Capstone
    
 
 # Data Models
 
-1. create models
+  ## create models:
 
-     ## equipment
-       - [ ] name of the IT equipment 
-       - [ ] equipment model#
-       - [ ] puchase date
-       - [ ] expiration date
-      ## user
-        - [ ] login(email adress)
-        - [ ] password
-
-  
+      ## equipment
+        - [ ] name of the IT equipment 
+        - [ ] equipment model#
+        - [ ] puchase date
+        - [ ] expiration date
+        - [ ] quantity
+       ## user
+         - [ ] login(email adress)
+         - [ ] password
+           - [ ] Matthew suggest to use the Django Built in User System
 
 
 # Template
-  ## display quantity
-  ## equipment
-       - [ ] name of the IT equipment 
-       - [ ] equipment model#
-       - [ ] puchase date
-       - [ ] expiration date
-  ## user
-        - [ ] login(email adress)
-        - [ ] password
-
-
-
-
+  - [ ] Homepage will be leasting all the inventory
+     - [ ] Login Page for the - IT staff will be login in to help manage the inventory
+     - [ ] Registration page for the - IT staff to register to create an account to access the inventory management
+     - [ ] User profile page in case the - IT staff would like to update their inventory management registration account
+     - [ ] page list all the inventory items 
+     - [ ] search / retrieve button to search for a particular inventory item
+          - [ ] think about the user experience and what the IT staff see when they visit the inventory management page
 
 # Schedule
 
+  ## Week 1
+    - [ ] Create my models - focus on the data I want to have on my models and what data I need to collect from the user (IT staff) and also determine           what data I will like to search with the user. 
+       - [ ] app.py
+       - [ ] url.py
+       - [ ] view.py after the models are completed think about he views and what the page should looks like 
 
-### Week 1
-
- ## equipment
-       - [ ] name of the IT equipment 
-       - [ ] equipment model#
-       - [ ] puchase date
-       - [ ] expiration date
- ## user
-        - [ ] login(email adress)
-        - [ ] password
-        
-- [ ] reminder  to commit each time I have completed a task 
-
-# app.py
-# url.py
-# view.p
-  - [ ] display quantity
+    - [ ] Setup the user management system to login into the inventory management 
 
 
-### Week 2
-
-add items to the inventoty
-delete add items to the inventoty
-- [ ] reminder  to commit each time I have completed a task 
+    - [ ] reminder  to commit each time I have completed a task 
 
 
 
-### Week 3
+   ## Week 2
 
-  - [ ] CSS Style, try Materilize or Bootstrap check it is responsive
-  - [ ] reminder to commit each time I have completed a task 
+     - [ ] Setup the page for listing all the inventory 
+     - [ ] Allow the user to search for all the inventory 
+     - [ ] reminder  to commit each time I have completed a task 
 
 
-# Future features:
 
-- [ ] add Cron to send an automated email reminder of the inventory levels each day to the manage
-- [ ] add a excel to json converter to import the inventory list from accounting into the Web app database by uploading it or drag and drop
+   ## Week 3
 
-- [ ] add some charts showing the inventory levels 
+     - [ ] CSS Style, try Materilize or Bootstrap check it is responsive
+     - [ ] Create a report list of items that need to ordered
+     - [ ] reminder to commit each time I have completed a task 
 
+ ## After Class continue working on the following features:
+
+     - [ ] add Cron to send an automated email reminder of the inventory levels each day to the manage
+     - [ ] add a excel to json converter to import the inventory list from accounting into the Web app database by uploading it or drag and drop
+
+     - [ ] add some charts showing the inventory levels 
+     - [ ] have an indicator that alert when an item is in the red zone meaning need to be orderd
+     - [ ] Use xlsx to read excel sheet with the IT equipment and upload it to the inventory management system see below for the links Matthew shared
+     - [ ] from excel export to a CSV - Matthew says that CSV files are easy to read
+          - [ ] Use the Built in Library for CSV in Python - CSV means (commas separated values) it is , value , value , value 
+            - [ ] right a costume management command that would open the CSV or xlsx file and read the data and put the data in my own database
+                - [ ] look the pokedex lab when we read the json file and put the file on the database I will be doing something similar to that which 
+                      we created a pokedex costome management file to handle the Json files but in my case instead of json file like the pokedex, I                          wll use a CSV files since the inventory the IT department receive come from DELL and other vendor as an excell file and I can  
+                       use this IT equipment reports and automate the uploading into the database to void entering manually. 
+   
 
 # Technology used:
 
-- Python
-- Django
-- JavaScript
-- HTML & CSS
+  - Python
+  - Django
+  - JavaScript
+  - HTML & CSS
 
 # Resources:
 
@@ -144,6 +142,7 @@ delete add items to the inventoty
      Reading/parsing Excel (xls) files with Python
      What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported by default in Python   
      to do this task?
+  -  User Login:  Using the Django user management authentication system https://docs.djangoproject.com/en/3.0/topics/auth/default/
 
   
   
