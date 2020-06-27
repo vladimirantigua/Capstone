@@ -118,3 +118,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# LOGIN_URL = '/users/login/' this was on my setting.py for my class armidillo ask if I will need it?
