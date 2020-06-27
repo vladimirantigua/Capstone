@@ -1,4 +1,4 @@
-# gitignore from my Class Armadillo the rest below can included when I created the repo called Capstone
+# gitignore from my Class Armadillo the rest below can included when I created the repo called Capstone only needed the .DS_Store because I using a Mac laptop
 
 
 .DS_Store
