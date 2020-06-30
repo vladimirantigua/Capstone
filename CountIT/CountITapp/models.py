@@ -13,8 +13,11 @@ class Inventory(models.Model):
     asset_tag = models.CharField(max_length=200, null=True, blank=True)
     # service tags = L15w10a L=laptop 15 means 15 inches w10 = windows 10 a = means a random letter I assigned to make it unique  used for IT department to utilize the Dell warranty and services and to apply the correct software updates according the service tags from Dell
     service_tag = models.CharField(max_length=200, null=True, blank=True)
+    # purchase_date = will help with the expiration date will help scheduling with the recycling and refreshing timely and for accounting and finance to clear this assets from the books
     purchase_date = models.DateTimeField(null=True, blank=True)
+    # expiration_date = laptops will be refreshed every 4 years according to the IT policy
     expiration_date = models.DateTimeField(null=True, blank=True)
+    # quantity = will help mantain proper level of equipment on stock for each of the four quarters during the physical year
     quantity = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
