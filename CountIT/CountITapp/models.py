@@ -11,7 +11,7 @@ class Inventory(models.Model):
     equipment_model = models.CharField(max_length=200, null=True, blank=True)
     # asset_tags used for accounting and finance L = laptop D = destop P = Precision Engineer laptops 32GB Ram
     asset_tag = models.CharField(max_length=200, null=True, blank=True)
-    # service tags used for IT department to utilize the Dell warranty and services and to apply the correct software updates according the service tags from Dell
+    # service tags = L15w10a L=laptop 15 means 15 inches w10 = windows 10 a = means a random letter I assigned to make it unique  used for IT department to utilize the Dell warranty and services and to apply the correct software updates according the service tags from Dell
     service_tag = models.CharField(max_length=200, null=True, blank=True)
     purchase_date = models.DateTimeField(null=True, blank=True)
     expiration_date = models.DateTimeField(null=True, blank=True)
