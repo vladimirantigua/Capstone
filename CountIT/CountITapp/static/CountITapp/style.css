@@ -3,5 +3,33 @@ li a {
 }
 
 body {
-    background: white url("images/background_inventory.jpeg") no-repeat;
+    background: white url("images/background_inventory2.jpeg") no-repeat;
+    padding-right: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#font_fun {
+    font-size: medium;
+    color: white;
+    margin: 10px 180px 40px 100px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+}
+
+
+/* #btn-primary {
+    margin: 10px 180px 40px 100px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+} */
+
+#logo {
+    background-size: cover;
+    margin: 1px 180px 40px 100px;
+    margin-left: 1px;
+}
+
+#logo {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
