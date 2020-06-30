@@ -111,7 +111,8 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
 # Resources:
 
-  - Django Quickstart = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Django%20Quickstart.md 
+  - Django Quickstart = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Django%20Quickstart.md
+  - User Management = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/06%20-%20User%20Management.md
   - Virtual Environments =  https://github.com/PdxCodeGuild/class_armadillo/blob/master/1%20Python/docs/17%20-%20Virtual%20Environments.md
   
   - Basic writing and formatting syntax = https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
