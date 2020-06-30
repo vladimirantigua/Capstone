@@ -5,9 +5,11 @@ from django.db import models
 
 
 class Inventory(models.Model):
+    # equipment_name = Dell Latitude 15-inch laptop or Latitude 13-inch travel laptop or Microsoft Surface or  Dell OptiPlex Desktop Precision 5530
     equipment_name = models.CharField(max_length=200, null=True, blank=True)
+    # equipment_model = 5590 (15' laptop high performace laptop 16GB Ram) or 7390(13' laptop for travel)
     equipment_model = models.CharField(max_length=200, null=True, blank=True)
-    # asset_tags used for accounting and finance
+    # asset_tags used for accounting and finance L = laptop D = destop P = Precision Engineer laptops 32GB Ram
     asset_tag = models.CharField(max_length=200, null=True, blank=True)
     # service tags used for IT department to utilize the Dell warranty and services and to apply the correct software updates according the service tags from Dell
     service_tag = models.CharField(max_length=200, null=True, blank=True)
