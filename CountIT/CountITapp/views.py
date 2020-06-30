@@ -5,4 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('hello world!')
+    context = {
+        'message': 'Count IT :) !'
+    }
+    return render(request, 'CountITapp/index.html', context)
