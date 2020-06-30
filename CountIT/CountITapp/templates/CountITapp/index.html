@@ -13,6 +13,16 @@
         /* copy css from external file over*/
         /* replace hard-coded path for image with {% static ... %}*/
         /* test it in your browser */
+        /*         
+        #footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+        } */
     </style>
 </head>
 
@@ -22,14 +32,19 @@
         <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
     </div>
     <div id="font_fun">
-
-
         <ul>
             {% for inventory_item in inventory_items %}
             <li>{{ inventory_item.service_tag }}</li>
             {% endfor %}
         </ul>
     </div>
+
+
+    <div id="footer">
+        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+    </div>
+
 </body>
+
 
 </html>
