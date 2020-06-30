@@ -6,6 +6,11 @@
     <title>"Count IT"</title>
 </head>
 <body>
-    <h1>{{message}}</h1>
+    
+     <ul>
+      {% for inventory_item in inventory_items %}
+      <li>{{ inventory_item.service_tag }}</li>
+      {% endfor %}
+    </ul>
 </body>
 </html>
