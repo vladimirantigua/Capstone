@@ -37,11 +37,12 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   ## create models:
 
       ## equipment
-        - [ ] name of the IT equipment 
-        - [ ] equipment model#
-        - [ ] puchase date
-        - [ ] expiration date
-        - [ ] quantity
+        - [x] name of the IT equipment 
+        - [x] equipment model#
+        - [x] asset_tag
+        - [x] puchase date
+        - [x] expiration date
+        - [x] quantity
        ## user
          - [ ] login(email adress)
          - [ ] password
@@ -60,7 +61,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 # Schedule
 
   ## Week 1
-    - [ ] Create my models - focus on the data I want to have on my models and what data I need to collect from the user (IT staff) and also determine           what data I will like to search with the user. 
+    - [x] Create my models - focus on the data I want to have on my models and what data I need to collect from the user (IT staff) and also determine what data I will like to search with the user. 
        - [ ] app.py
        - [ ] url.py
        - [ ] view.py after the models are completed think about he views and what the page should looks like 
