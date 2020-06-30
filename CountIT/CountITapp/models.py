@@ -6,6 +6,8 @@ from django.db import models
 
 class Inventory(models.Model):
     # equipment_name = Dell Latitude 15-inch laptop or Latitude 13-inch travel laptop or Microsoft Surface or  Dell OptiPlex Desktop Precision 5530
+    # equipment name = Monitors, Keyboard and mice but accounting and finace worries about the laptops
+    # for their report so focus on this capstone project on reporting the laptops and if finish add monitor, Keyboard and mice and if finish add some important items like Docking Stations
     equipment_name = models.CharField(max_length=200, null=True, blank=True)
     # equipment_model = 5590 (15' laptop high performace laptop 16GB Ram) or 7390(13' laptop for travel)
     equipment_model = models.CharField(max_length=200, null=True, blank=True)
