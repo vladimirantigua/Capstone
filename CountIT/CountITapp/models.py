@@ -23,7 +23,8 @@ class Inventory(models.Model):
     quantity = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
-        return self.equipment_name + ' - ' + self.equipment_model + ' - ' + self.asset_tag + ' - ' + self.service_tag
+        # to concat an integer need to wrap it like this + ' - ' + str(self.quantity)
+        return self.equipment_name + ' - ' + self.equipment_model + ' - ' + self.asset_tag + ' - ' + self.service_tag + ' - ' + str(self.quantity)
 
 # check with the Matthew or TAs to see if my models are correct
 # see if I need to create a users models login or if I can use the build in Django user login check if need to create a user login pw if using the built in user that was created
