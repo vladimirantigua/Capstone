@@ -48,6 +48,10 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
          - [ ] password
            - [ ] Matthew suggest to use the Django Built in User System
 
+# Forms
+
+  - [ ] create forms 
+
 
 # Template
   - [ ] Homepage will be leasting all the inventory
