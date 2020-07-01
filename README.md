@@ -125,6 +125,10 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   
   - Python class documentation = https://github.com/PdxCodeGuild/class_armadillo/tree/master/1%20Python/docs
   
+  - Django forms tutorial = https://tutorial.djangogirls.org/en/django_forms/
+  - Django form tutorial MDN site = https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
+  - Django form tutorial video tutotial = https://www.youtube.com/watch?v=6oOHlcHkX2U
+  
   - HTML CSS class documentation = https://github.com/PdxCodeGuild/class_armadillo/tree/master/2%20HTML%2BCSS/docs
   
   - Javascript class docs = https://github.com/PdxCodeGuild/class_armadillo/tree/master/5%20JavaScript/docs
