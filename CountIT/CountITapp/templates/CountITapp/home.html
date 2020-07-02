@@ -6,17 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
     <title>Home Page</title>
 </head>
 
 <body>
-    <div id="logo" class="col-sm-6 banner-image">
+    <!-- <div id="logo" class="col-sm-6 banner-image">
         <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
-    </div>
+    </div> -->
 
     <h1>Home Page</h1>
     <h3>Welcome "CountIT", {{user.username}}</h3>
     <a href="{% url 'CountITapp:logout_user' %}">logout</a>
+
+    <div id="footer">
+        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+    </div>
 </body>
 
 </html>
