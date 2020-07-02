@@ -7,6 +7,7 @@ from .models import Inventory
 # create the form model below:
 # https://tutorial.djangogirls.org/en/django_forms/
 # https://www.youtube.com/watch?v=6oOHlcHkX2U
+# https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display
 
 
 class InventoryForm(forms.ModelForm):

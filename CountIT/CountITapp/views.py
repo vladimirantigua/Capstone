@@ -15,3 +15,13 @@ def index(request):
         'inventory_items': inventory_items
     }
     return render(request, 'CountITapp/index.html', context)
+
+
+# def IT_items(request):
+#     # Order by quantity the items with less items at the top
+#     search = Inventory.objects.order.all()
+#     # inventory_items = CountIT.objects.all().order_by('equipment_model')
+#     context = {
+#         'search': search
+#     }
+#     return render(request, 'IT_items/index.html', context)

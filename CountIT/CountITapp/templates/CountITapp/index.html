@@ -34,8 +34,11 @@
     <div id="font_fun">
         <ul>
             {% for inventory_item in inventory_items %}
-            <li>{{ inventory_item.service_tag }}</li>
+            <li>{{ inventory_item.equipment_name }}, {{ inventory_item.equipment_model }}, {{ inventory_item.asset_tag }}, {{ inventory_item.purchase_date }}, {{ inventory_item.expiration_date }}
+            </li>
             {% endfor %}
+
+
         </ul>
     </div>
 
