@@ -13,6 +13,11 @@
 
 <body>
 
+    {% for item in queryset %}
+    <li>{{ item.equipment_name }}, {{ item.equipment_model }}, {{ item.asset_tag }}, {{ item.purchase_date }}, {{ item.expiration_date }}
+    </li>
+    {% endfor %}
+
 </body>
 
 </html>

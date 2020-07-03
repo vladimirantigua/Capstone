@@ -10,5 +10,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('detail/<int:id>/', views.detail, name='detail'),
     path('logout/', views.logout_user, name='logout_user'),
+    path('search/', views.search, name='search'),
 ]
 path('<int:pokemon_id>/', views.detail, name='detail')
