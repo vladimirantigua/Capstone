@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Pokemon Card</title>
+    <title>IT Item Detail</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -17,7 +17,9 @@
 </head>
 
 <body>
-
+    <div id="logo" class="col-sm-6 banner-image">
+        <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
+    </div>
     <div class="container">
         <h2 style="color:blue;"><i>IT Inventory</i></h2>
 
@@ -38,16 +40,15 @@
             <tbody>
                 <tr>
                     <tr class="number"></tr>
-                    <td>{{ inventory_items.equipment_name }}</td>
-                    <td>{{ inventory_items.equipment_model }}</td>
-                    <td>{{ inventory_items.asset_tag }}</td>
-                    <td>{{ inventory_items.service_tag }}</td>
-                    <td>{{ inventory_items.purchase_date }}</td>
-                    <td>{{ inventory_items.expiration_date }}</td>
-                    <td>{{ inventory_items.quantity }}</t>
-                        <!-- <td><img src="{{pokemon.image_front}}"></td>
-                    <td><img src="{{pokemon.image_back}}"></td>
-                    <td>{{ types}}</td> -->
+                    <td>{{ item.equipment_name }}</td>
+                    <td>{{ inventory_item.equipment_model }}</td>
+                    <td>{{ inventory_item.asset_tag }}</td>
+                    <td>{{ inventory_item.service_tag }}</td>
+                    <td>{{ inventory_item.purchase_date }}</td>
+                    <td>{{ inventory_item.expiration_date }}</td>
+                    <td>{{ inventory_item.quantity }}</t>
+                        <!-- <td><img src="{{laptop.image_front}}"></td>-->
+
                 </tr>
             </tbody>
         </table>
