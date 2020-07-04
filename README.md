@@ -164,6 +164,8 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   - add bootstrap sample = https://getbootstrap.com/docs/4.5/getting-started/introduction/
   - Installed the Crispy forms in Django: pip3 install --upgrade django-crispy-forms https://pypi.org/project/django-crispy-  
     forms/
+  - Installing django-crispy-forms https://django-crispy-forms.readthedocs.io/en/latest/install.html
+
 
   
   
