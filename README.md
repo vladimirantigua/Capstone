@@ -162,6 +162,8 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   -  User Login:  Using the Django user management authentication system                      https://docs.djangoproject.com/en/3.0/topics/auth/default/
   - add bootstrap sample =  https://getbootstrap.com/docs/4.5/examples/
   - add bootstrap sample = https://getbootstrap.com/docs/4.5/getting-started/introduction/
+  - Installed the Crispy forms in Django: pip3 install --upgrade django-crispy-forms https://pypi.org/project/django-crispy-  
+    forms/
 
   
   
