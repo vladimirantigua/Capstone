@@ -161,6 +161,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
      to do this task?
   -  User Login:  Using the Django user management authentication system                      https://docs.djangoproject.com/en/3.0/topics/auth/default/
   - add bootstrap sample =  https://getbootstrap.com/docs/4.5/examples/
+  - add bootstrap sample = https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
   
   
