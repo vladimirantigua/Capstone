@@ -113,6 +113,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   - Django
   - JavaScript
   - HTML & CSS
+  - Bootstrap
 
 # Resources:
 
@@ -152,13 +153,14 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
      https://stackoverflow.com/questions/2942889/reading-parsing-excel-xls-files-with-python
      Stack OverflowStack Overflow
      How to read a .xlsx file using the pandas Library in iPython?
-     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All I could do up until now is: import    
+     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All I could do up      until now is: import    
      pandas as pd data = pd.ExcelFile("File Name") No...
      Stack OverflowStack Overflow
      Reading/parsing Excel (xls) files with Python
-     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported by default in Python   
+     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported       by default in Python   
      to do this task?
-  -  User Login:  Using the Django user management authentication system https://docs.djangoproject.com/en/3.0/topics/auth/default/
+  -  User Login:  Using the Django user management authentication system                      https://docs.djangoproject.com/en/3.0/topics/auth/default/
+  - add bootstrap sample =  https://getbootstrap.com/docs/4.5/examples/
 
   
   
