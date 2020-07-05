@@ -1,11 +1,13 @@
 from django.http import HttpResponse
 # from .models import Inventory: need to be added to the admin.py and view.py
 from .models import Inventory
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, redirect
 from django.http import HttpResponseRedirect
+# this is the Django built in user model: from django.contrib.auth.models import User
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .forms import InventoryForm
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -29,9 +31,9 @@ def index(request):
 
     # paginator need to be done before the context variable below if do it after it will not show
     # create a variable and bring the model from line 6 Paginator
-    # this will print 20 pokemons per page
+    # this will print 20 IT ITEMS per page
     paginator = Paginator(inventory_items, 15)
-    # this is saying for every 15 pokemon I need to create a new page
+    # this is saying for every 15 IT_EQUIPMENT I need to create a new page
     inventory_items = paginator.page(page)
 
     # inventory_items = CountIT.objects.all().order_by('equipment_model')
@@ -60,6 +62,8 @@ def index(request):
 
     return render(request, 'CountITapp/index.html', context)
 
+# detail view
+
 
 def detail(request, id):  # contact_id each person have a unique contact_id
     # I am searching by number
@@ -71,10 +75,26 @@ def detail(request, id):  # contact_id each person have a unique contact_id
     #     item.append(item.name)
 
     # {'contact': contact}) this is giving a single contact this is why is singular because when we click the name of one of the people in the contact list it will give only that person contact details instead of everyone else
-    # to get a list of the types to turn the query set of the types into a list: list(pokemon.types.all())
+    # to get a list of the types to turn the query set of the types into a list: list(IT_quipment.types.all())
     return render(request, 'CountITapp/search.html', {'item': item})
 
+# https://docs.djangoproject.com/en/3.0/ref/request-response/
+# https://stackoverflow.com/questions/38251922/logic-behind-formrequest-post-or-none
 
+# add equipment view:
+
+
+# @staticmethod
+def add_equipment():
+    form = InventoryForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('')
+    context = {
+        "form": form,
+        # "name": addedEquipment
+    }
+    return render(request, "CountITapp/add_equipment.html", context)
 # function will create a query set to in case I want to look for the items
 
 
@@ -109,11 +129,14 @@ def search(query=None):
 # if the user is not logged in, this redirects them to whatever path is in the settings.py as LOGIN_URL
 # if the user is logged in, the view proceeds as usual
 
-
+# @login_required requires that the users have to login and it will redirect to the login page to the page we set at the settings Login URLin to see the information on the site this is a decorator @login_required similar to the one we used in Flask
 @login_required
+# Login page view
 def home(request):
-    print(request.user.username)
+    # print(request.user.username)
     return render(request, 'CountITapp/home.html')
+
+# login page view
 
 
 def login_page(request):
@@ -134,26 +157,35 @@ def login_page(request):
 
     return render(request, 'CountITapp/login.html')
 
+# register page view How to use my email as my username
+
 
 def register_page(request):
+
     if request.method == 'POST':
 
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         retype_password = request.POST['retype_password']
-
+        # to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
         if password != retype_password:
             return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
         # check if a user with that username already exists
         if User.objects.filter(username=username).exists():
+            # if User.objects.filter(email=email).exists():
             return render(request, 'CountITapp/register.html', {'message': 'username already exists'})
         # create the user, log them in, and redirect to the home page
+        # this will create all the hashing and create the user -- user = User.objects.create_user(username, email, password)
         user = User.objects.create_user(username, email, password)
         login(request, user)
+        # return HttpResponseRedirect(reverse('CountITapp:register'))
+        # redirect to the homepage:
         return HttpResponseRedirect(reverse('CountITapp:home'))
-
+    print(request.POST)
     return render(request, 'CountITapp/register.html')
+
+# Logout view
 
 
 def logout_user(request):

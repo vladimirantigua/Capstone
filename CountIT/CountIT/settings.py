@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CountITapp',
+    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -119,4 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# LOGIN_URL = '/users/login/' this was on my setting.py for my class armidillo ask if I will need it?
+# LOGIN_URL = '/CountITapp/login/' is to be used in conjuction with @login_required if the user are logged in then
+# it will go to the home page and render the template but if the user has not
+# login yet then it will redirect to this page below: '/CountITapp/login/'
+LOGIN_URL = '/CountITapp/login/'
+
+# added the crispy forms:
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
