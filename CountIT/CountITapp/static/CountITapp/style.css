@@ -48,6 +48,20 @@ li a {
     transition: 0.5s;
 }
 
+#welcome_home {
+    font-style: italic;
+}
+
+#welcome_home:hover {
+    font-style: italic;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: black;
+    box-shadow: 7px 7px 12px rgb(6, 86, 235);
+    transition: 0.5s;
+}
+
 #home_logo {
     background-size: cover;
     margin: 1px 180px 40px 100px;

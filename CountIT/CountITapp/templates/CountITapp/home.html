@@ -13,11 +13,13 @@
 <body>
     <h1>Home Page</h1>
     <div id="home_logo" class="col-sm-6 banner-image">
-        <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
+        <img src="{% static 'CountITapp/images/background_inventory15.png' %}" class="img-responsive">
     </div>
     <!-- to add a message after the user have logged in use the Welcome message Welcome to "CountIT", {{user.username}} -->
-    <h3>Welcome to "CountIT", {{user.username}}</h3>
-    <a href="{% url 'CountITapp:logout_user' %}">logout</a>
+    <div id="welcome_home">
+        <h3>Welcome to "CountIT", {{user.username}}</h3>
+        <a href="{% url 'CountITapp:logout_user' %}">logout</a>
+    </div>
 
     <div id="footer">
         <p>Created by: Vladimir Antigua 30 Jun 2020</p>

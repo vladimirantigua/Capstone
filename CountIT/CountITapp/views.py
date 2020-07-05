@@ -152,6 +152,7 @@ def login_page(request):
         login(request, user)
         # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
         if 'next' in request.GET:
+            # redirect to next in this case is the login page
             return HttpResponseRedirect(request.GET['next'])
         return HttpResponseRedirect(reverse('CountITapp:home'))
 
@@ -177,7 +178,8 @@ def register_page(request):
             return render(request, 'CountITapp/register.html', {'message': 'Please use a different username the username you entered already exists'})
         # create the user, log them in, and redirect to the home page
         # this will create all the hashing and create the user -- user = User.objects.create_user(username, email, password)
-        user = User.objects.create_user(username, email, password)
+        # if we want to utilize email as the username do it the format below by passing the username as the email (email, email, password)
+        user = User.objects.create_user(email, email, password)
         login(request, user)
         # return HttpResponseRedirect(reverse('CountITapp:register'))
         # redirect to the homepage:
@@ -190,6 +192,7 @@ def register_page(request):
 
 def logout_user(request):
     logout(request)
+    # after login out the user will be redirected to the login page:
     return HttpResponseRedirect(reverse('CountITapp:login_page'))
 
 
