@@ -38,6 +38,24 @@ li a {
     right: 0;
 }
 
+#message {
+    font-style: italic;
+    font-size: 20px;
+    color: red;
+}
+
+#home_logo {
+    background-size: cover;
+    margin: 1px 180px 40px 100px;
+    margin-right: 1px;
+}
+
+#home_logo {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
 body {
     background: white url("images/background_inventory2.jpeg") no-repeat;
     padding-right: 50%;

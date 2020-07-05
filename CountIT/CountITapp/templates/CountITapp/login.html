@@ -17,7 +17,7 @@
 
     <h1>Login</h1>
     {% if message %}
-    <div class="message">{{message}}</div>
+    <div id="message">{{message}}</div>
     {% endif %}
     <form action="{% url 'CountITapp:login_page' %}" method="post">
         {% csrf_token %}

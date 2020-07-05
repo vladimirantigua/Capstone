@@ -130,6 +130,8 @@ def search(query=None):
 # if the user is logged in, the view proceeds as usual
 
 # @login_required requires that the users have to login and it will redirect to the login page to the page we set at the settings Login URLin to see the information on the site this is a decorator @login_required similar to the one we used in Flask
+# if trying to go to the Home Page and you have not logged in yet it will
+# redirect to this page which is the login page: http://localhost:8000/CountITapp/login/?next=/CountITapp/home/
 @login_required
 # Login page view
 def home(request):
@@ -147,7 +149,7 @@ def login_page(request):
 
         user = authenticate(request, username=username, password=password)
         if user is None:  # username and password do not match, go back to the page
-            return render(request, 'CountITapp/login.html', {'message': 'there is no user with that username and password'})
+            return render(request, 'CountITapp/login.html', {'message': 'there is no user with that username and password. Please enter a valid Username and Password or click register to create an account'})
         # user was found, log them in and redirect to the home page
         login(request, user)
         # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
