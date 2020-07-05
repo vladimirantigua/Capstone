@@ -30,6 +30,9 @@
             <p>Please fill in this form to create an account.</p>
             <hr>
 
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" id="email" required>
+
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
@@ -48,9 +51,12 @@
             <div>Already have an account? <a href="{% url 'CountITapp:login_page' %}">Signin</a></div>
         </div>
     </form>
-    <div id="footer">
+    <!-- Figure out how to make the footer not to interrupt with the signin button when 
+        the footer is commented the signing button works 
+        but signing does not work or I am unable to click it to go to the login page -->
+    <!-- <div id="footer">
         <p>Created by: Vladimir Antigua 30 Jun 2020</p>
-    </div>
+    </div> -->
 </body>
 
 </html>

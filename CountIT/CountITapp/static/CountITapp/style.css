@@ -38,10 +38,14 @@ li a {
     right: 0;
 }
 
-#message {
+#message:hover {
     font-style: italic;
     font-size: 20px;
-    color: red;
+    background: transparent;
+    border: none;
+    color: black;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+    transition: 0.5s;
 }
 
 #home_logo {

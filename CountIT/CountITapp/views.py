@@ -126,12 +126,9 @@ def search(query=None):
     return list(set(queryset))
 
 
-# if the user is not logged in, this redirects them to whatever path is in the settings.py as LOGIN_URL
-# if the user is logged in, the view proceeds as usual
-
 # @login_required requires that the users have to login and it will redirect to the login page to the page we set at the settings Login URLin to see the information on the site this is a decorator @login_required similar to the one we used in Flask
 # if trying to go to the Home Page and you have not logged in yet it will
-# redirect to this page which is the login page: http://localhost:8000/CountITapp/login/?next=/CountITapp/home/
+# redirect to this page which is the login page: http://localhost:8000/CountITapp/login/?next=/CountITapp/home/ for the user to enter username and pw and then redirect to the home page
 @login_required
 # Login page view
 def home(request):
@@ -143,14 +140,15 @@ def home(request):
 
 def login_page(request):
     if request.method == 'POST':
-
+        # to get the Username and Pw out of the form
         username = request.POST['username']
         password = request.POST['password']
-
+        # if the user has been created the and the username and pw match you will be able to login:
         user = authenticate(request, username=username, password=password)
-        if user is None:  # username and password do not match, go back to the page
-            return render(request, 'CountITapp/login.html', {'message': 'there is no user with that username and password. Please enter a valid Username and Password or click register to create an account'})
-        # user was found, log them in and redirect to the home page
+        # username and password do not match, go back to the page and didplay this message: {'message': 'Wrong User name and Password there is no user with this username and password. Please enter a valid Username and Password or click register to create an account'})
+        if user is None:
+            return render(request, 'CountITapp/login.html', {'message': 'Wrong Username and Password there is no user with this username and password. Please enter a valid Username and Password or click register to create an account'})
+        # login(request, user) means if the user has been created then the user will be able to login and be redirected to the home page
         login(request, user)
         # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
         if 'next' in request.GET:
@@ -176,7 +174,7 @@ def register_page(request):
         # check if a user with that username already exists
         if User.objects.filter(username=username).exists():
             # if User.objects.filter(email=email).exists():
-            return render(request, 'CountITapp/register.html', {'message': 'username already exists'})
+            return render(request, 'CountITapp/register.html', {'message': 'Please use a different username the username you entered already exists'})
         # create the user, log them in, and redirect to the home page
         # this will create all the hashing and create the user -- user = User.objects.create_user(username, email, password)
         user = User.objects.create_user(username, email, password)
