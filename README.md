@@ -113,11 +113,13 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   - Django
   - JavaScript
   - HTML & CSS
+  - Bootstrap
 
 # Resources:
 
   - Django Quickstart = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Django%20Quickstart.md
   - User Management = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/06%20-%20User%20Management.md
+  - Python Django Tutorial: Login and Logout Systehttps://www.youtube.com/watch?v=3aVqWaLjqS4
   - Virtual Environments =  https://github.com/PdxCodeGuild/class_armadillo/blob/master/1%20Python/docs/17%20-%20Virtual%20Environments.md
   
   - Basic writing and formatting syntax = https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
@@ -152,13 +154,20 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
      https://stackoverflow.com/questions/2942889/reading-parsing-excel-xls-files-with-python
      Stack OverflowStack Overflow
      How to read a .xlsx file using the pandas Library in iPython?
-     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All I could do up until now is: import    
+     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All I could do up      until now is: import    
      pandas as pd data = pd.ExcelFile("File Name") No...
      Stack OverflowStack Overflow
      Reading/parsing Excel (xls) files with Python
-     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported by default in Python   
+     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported       by default in Python   
      to do this task?
-  -  User Login:  Using the Django user management authentication system https://docs.djangoproject.com/en/3.0/topics/auth/default/
+  -  User Login:  Using the Django user management authentication system                      https://docs.djangoproject.com/en/3.0/topics/auth/default/
+  - add bootstrap sample =  https://getbootstrap.com/docs/4.5/examples/
+  - add bootstrap sample = https://getbootstrap.com/docs/4.5/getting-started/introduction/
+  - Installed the Crispy forms in Django: pip3 install --upgrade django-crispy-forms https://pypi.org/project/django-crispy-  
+    forms/
+  - Installing django-crispy-forms https://django-crispy-forms.readthedocs.io/en/latest/install.html
+  - Django Crispy Forms - what are they about? = https://www.merixstudio.com/blog/django-crispy-forms-what-are-they-about/
+
 
   
   
