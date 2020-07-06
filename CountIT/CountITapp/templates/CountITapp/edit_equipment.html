@@ -38,7 +38,7 @@
         <h2 style="color:blue;"><i>IT Inventory Detail Page:</i></h2>
 
 
-        <form action="{% url 'CountITapp:edit_equipment' %}" method="post">
+        <form action="{% url 'CountITapp:edit_item_submit' %}" method="post">
             {% csrf_token %}
             <div class="container">
                 <h2>Detail Page</h2>
@@ -93,18 +93,15 @@
                     <textarea class="form-control" id="comm" name="comments"> {{item.comments}}</textarea>
                 </div>
             </div>
-            <form action="{% url 'CountITa[[]]:index' %}" method="post">
-                {% csrf_token %}
 
-                <button type="submit" class="btn btn-primary">Update Inventory</button>
-            </form>
+            <button type="submit" class="btn btn-primary">Update Inventory</button>
+        </form>
     </div>
 
     <footer id="footer">
         <hr />
-        <span>Created by: Vladimir Antigua 30 Jun 2020; &copy</span>
+        <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
     </footer>
-    </form>
 </body>
 
 </html>

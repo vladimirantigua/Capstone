@@ -14,4 +14,4 @@ class InventoryForm(forms.ModelForm):
     class Meta:
         model = Inventory
         fields = ['equipment_name', 'equipment_model',
-                  'asset_tag', 'service_tag', 'purchase_date', 'expiration_date', 'quantity']
+                  'asset_tag', 'service_tag', 'purchase_date', 'expiration_date', 'quantity', 'comments']

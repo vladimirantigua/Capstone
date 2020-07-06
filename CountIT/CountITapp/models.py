@@ -26,11 +26,11 @@ class Inventory(models.Model):
     # this will allow when deleting a user to eliminate the models for that user: on_delete=models.PROTECT
     # user = model.ForeignKey(User, on_delete=models.PROTECT, related_name='inventory_items')
     # add a comment for the detail page and create page in case the item need to be commented
-    #comments = models.TextField(max_length=200, blank=True, null=True)
+    comments = models.TextField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         # to concat an integer need to wrap it like this + ' - ' + str(self.quantity)
-        return self.equipment_name + ' - ' + self.equipment_model + ' - ' + self.asset_tag + ' - ' + self.service_tag + ' - ' + str(self.purchase_date) + ' - ' + str(self.expiration_date) + ' - ' + str(self.quantity)
+        return self.equipment_name + ' - ' + self.equipment_model + ' - ' + self.asset_tag + ' - ' + self.service_tag + ' - ' + str(self.purchase_date) + ' - ' + str(self.expiration_date) + ' - ' + str(self.quantity) + ' - ' + self.comments
 
 # check with the Matthew or TAs to see if my models are correct
 # see if I need to create a users models login or if I can use the build in Django user login check if need to create a user login pw if using the built in user that was created

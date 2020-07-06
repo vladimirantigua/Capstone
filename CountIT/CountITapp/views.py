@@ -13,6 +13,9 @@ from .forms import InventoryForm
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
+import requests
+# when add the recacha need to import the secret keys
+# from .import secrets
 
 
 # Create your views here.
@@ -94,7 +97,8 @@ def detail(request, id):  # IT_item_id each person have a unique IT_item_id
 
 
 def add_IT_equipment_page(request):
-    return render(request, 'CountITapp/add_equipment.html')
+    form = InventoryForm()
+    return render(request, 'CountITapp/add_equipment.html', {'form': form})
 
 
 def add_equipment(request):
@@ -143,9 +147,9 @@ def delete(request, id):
 def edit_equipment(request, id):
     inventory = get_object_or_404(Inventory, id=id)
     context = {
-        'inventory': inventory
+        'item': inventory
     }
-    return render(request, 'CountITapp/edit.html', context)
+    return render(request, 'CountITapp/edit_equipment.html', context)
 
 
 def edit_equipment_submit(request):
@@ -226,6 +230,8 @@ def home(request):
 
 def login_page(request):
     if request.method == 'POST':
+        # make sure to alway print the form
+        # print(request.POST)
         # to get the Username and Pw out of the form
         username = request.POST['username']
         password = request.POST['password']
@@ -250,12 +256,14 @@ def login_page(request):
 def register_page(request):
 
     if request.method == 'POST':
-
+        # make sure to alway print the form
+        # print(request.POST)
+        # get th info out of the form
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         retype_password = request.POST['retype_password']
-        # to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
+        # input validation on the backend - to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
         if password != retype_password:
             return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
         # check if a user with that username already exists
@@ -265,7 +273,7 @@ def register_page(request):
         # create the user, log them in, and redirect to the home page
         # this will create all the hashing and create the user -- user = User.objects.create_user(username, email, password)
         # if we want to utilize email as the username do it the format below by passing the username as the email (email, email, password)
-        user = User.objects.create_user(email, email, password)
+        user = User.objects.create_user(username, email, password)
         login(request, user)
         # return HttpResponseRedirect(reverse('CountITapp:register'))
         # redirect to the homepage:
@@ -281,7 +289,12 @@ def logout_user(request):
     # after login out the user will be redirected to the login page:
     return HttpResponseRedirect(reverse('CountITapp:login_page'))
 
+# profile page:
 
+
+@login_required
+def profile_page(request):
+    return render(request, 'CountITapp:profile_page')
 # def IT_items(request):
 #     # Order by quantity the items with less items at the top
 #     search = Inventory.objects.order.all()

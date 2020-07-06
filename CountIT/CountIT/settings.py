@@ -125,6 +125,6 @@ STATIC_URL = '/static/'
 # it will go to the home page and render the template but if the user has not
 # login yet then it will redirect to this page below: '/CountITapp/login/'
 LOGIN_URL = '/CountITapp/login/'
-
+# AUTH_USER_MODEL = 'CountITapp.Inventory'
 # added the crispy forms:
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
