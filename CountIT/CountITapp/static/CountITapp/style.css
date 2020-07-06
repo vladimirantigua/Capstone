@@ -88,11 +88,10 @@ body {
     /* box-shadow: 7px 7px 12px rgb(235, 6, 6); */
 }
 
-
-/* #btn-primary {
+#btn-primary {
     margin: 10px 180px 40px 100px;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
-} */
+}
 
 #footer {
     position: fixed;

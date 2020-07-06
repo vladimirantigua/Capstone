@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from datetime import datetime
 from .forms import InventoryForm
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
@@ -26,7 +27,7 @@ from django.core.paginator import Paginator
 def index(request):
     # Order by quantity the items with less items at the top
     inventory_items = Inventory.objects.order_by('quantity')
-    #inventory_items = request.user.inventory_items.order_by('quantity')
+    # inventory_items = request.user.inventory_items.order_by('quantity')
 
     # Make a request to the page with GET because we are getting the page instead of post from the browser this is why is it is capital GET
     # page is one of the string objects and 1 is the page the page starts this is what is going to be display at the button of my page
@@ -57,7 +58,8 @@ def index(request):
                 | Q(asset_tag__icontains=query)
                 | Q(service_tag__icontains=query)
                 | Q(purchase_date__icontains=query)
-                | Q(image_front__icontains=query)
+                # in case I want to add an image and how and be able to search it
+                # | Q(image_front__icontains=query)
                 # icontain will eliminate any capitalization
                 | Q(expiration_date__icontains=query)
                 | Q(quantity__icontains=query))
@@ -91,23 +93,99 @@ def detail(request, id):  # IT_item_id each person have a unique IT_item_id
 # add equipment view:
 
 
-# @staticmethod
-def add_equipment():
-    form = InventoryForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('')
+def add_IT_equipment_page(request):
+    return render(request, 'CountITapp/add_equipment.html')
+
+
+def add_equipment(request):
+    # When creating a new IT Equipment in the new add_IT_equipment_page it will show and create a field for the equipment name
+    equipment_name = request.POST['equipment_name']
+    equipment_model = request.POST['equipment_model']
+    asset_tag = request.POST['asset_tag']
+    service_tag = request.POST['service_tag']
+    purchase_date = request.POST['purchase_date']
+    # need to import from datetime import datetime. Also to parse the purchase and expiration
+    purchase_date = datetime.strptime(purchase_date, '%Y-%m-%d').date()
+    expiration_date = request.POST['expiration_date']
+    expiration_date = datetime.strptime(expiration_date, '%Y-%m-%d').date()
+    quantity = request.POST['quantity']
+    # in case I want to add an equipment image later:
+    # image_front = request.POST['image_front']
+    comments = request.POST['comments']
+
+    # Create a tuple
+    add_equipment = Inventory(equipment_name=equipment_name,
+                              equipment_model=equipment_model,
+                              asset_tag=asset_tag,
+                              service_tag=service_tag,
+                              purchase_date=purchase_date,
+                              expiration_date=expiration_date,
+                              quantity=quantity,
+                              image_front=image_front,
+                              comments=comments)
+    add_equipment.save()  # to save IT_equipment to the database
+
+    # remember to putting a comma at the end
+    # redirecting to the detail page
+    return HttpResponseRedirect(reverse('CountITapp:detail', args=(add_equipment.id,)))
+
+# Delete IT_equipment:
+
+
+def delete(request, id):
+    inventory = Inventory.objects.get(id=id)
+    inventory.delete()
+    return HttpResponseRedirect(reverse('CountITapp:index'))
+
+# edit IT_equipment:
+
+
+def edit_equipment(request, id):
+    inventory = get_object_or_404(Inventory, id=id)
     context = {
-        "form": form,
-        # "name": addedEquipment
+        'inventory': inventory
     }
-    return render(request, "CountITapp/add_equipment.html", context)
-# function will create a query set to in case I want to look for the items
+    return render(request, 'CountITapp/edit.html', context)
+
+
+def edit_equipment_submit(request):
+    # When creating a new IT Equipment in the new add_IT_equipment_page it will show and create a field for the equipment name
+    equipment_name = request.POST['equipment_name']
+    equipment_model = request.POST['equipment_model']
+    asset_tag = request.POST['asset_tag']
+    service_tag = request.POST['service_tag']
+    purchase_date = request.POST['purchase_date']
+    # need to import from datetime import datetime. Also to parse the purchase and expiration
+    purchase_date = datetime.strptime(purchase_date, '%Y-%m-%d').date()
+    expiration_date = request.POST['expiration_date']
+    expiration_date = datetime.strptime(expiration_date, '%Y-%m-%d').date()
+    quantity = request.POST['quantity']
+    # in case I want to add an equipment image later:
+    # image_front = request.POST['image_front']
+    comments = request.POST['comments']
+
+    # Getting the editing inventory:
+    inventory = Inventory.objects.get(id=id)
+    # assign values to the Inventory properties:
+    inventory.equipment_name = equipment_name
+    inventory.equipment_model = equipment_model
+    inventory.asset_tag = asset_tag
+    inventory.service_tag = service_tag
+    inventory.purchase_date = purchase_date
+    inventory.expiration_date = expiration_date
+    inventory.quantity = quantity
+    # in case I want to add an equipment image later:
+    # inventory.image_front = image_front
+    inventory.comments = comments
+
+    inventory.save()  # to save IT_equipment to the database
+
+    # remember to putting a comma at the end
+    # redirecting to the detail page
+    return HttpResponseRedirect(reverse('CountITapp:detail', args=(inventory.id,)))
 
 
 # IT Items query search:
-
-
 def search(query=None):
     queryset = []
     # this will do the search and divide the results with the coma
@@ -122,7 +200,8 @@ def search(query=None):
                                             | Q(asset_tag__icontains=query)
                                             | Q(service_tag__icontains=query)
                                             | Q(purchase_date__icontains=query)
-                                            | Q(image_front__icontains=query)
+                                            # in case I want to add an equipment image later and enable search:
+                                            # | Q(image_front__icontains=query)
                                             # icontain will eliminate any capitalization
                                             | Q(expiration_date__icontains=query)
                                             | Q(quantity__icontains=query))

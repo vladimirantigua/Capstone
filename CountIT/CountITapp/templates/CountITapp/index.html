@@ -26,23 +26,38 @@
 </head>
 
 <body>
-
-    <div id="logo" class="col-sm-6 banner-image">
+    <!-- add logo later -->
+    <!-- <div id="logo" class="col-sm-6 banner-image">
         <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
-    </div>
+    </div> -->
+
+
+
+
     <div id="font_fun">
-        <ul>
+
+        <!-- <ul>
             {% for inventory_item in inventory_items %}
             <li>{{ inventory_item.equipment_name }}, {{ inventory_item.equipment_model }}, {{ inventory_item.asset_tag }}, {{ inventory_item.purchase_date }}, {{ inventory_item.expiration_date }}
 
             </li>
             {% endfor %}
-            <a href="{% url 'CountITapp:logout_user' %}">logout</a>
-        </ul>
+
+        </ul> -->
+        {% for item in items %}
+        <a href="{% url 'CountIPapp:detail' item.id %}"> {{ item.equipment_name }},
+            {{ item.equipment_model }},{{ item.quantity }} </a>
     </div>
+    {% endfor %}
 
+    <div>
 
+        <a href="{% url 'CountITapp:add_equipment' %}"><button type="submit" id="btn-primary"
+                class="btn btn-primary">Add
+                IT Equipment</button></a>
 
+    </div>
+    <a href="{% url 'CountITapp:logout_user' %}">logout</a>
 
     <div id="footer">
         <p>Created by: Vladimir Antigua 30 Jun 2020</p>
@@ -52,3 +67,19 @@
 
 
 </html>
+
+
+<!-- 
+
+
+<div id="font_fun">
+    <ul>
+        {% for inventory_item in inventory_items %}
+        <li>{{ inventory_item.equipment_name }}, {{ inventory_item.equipment_model }}, {{ inventory_item.asset_tag }},
+            {{ inventory_item.purchase_date }}, {{ inventory_item.expiration_date }}
+
+        </li>
+        {% endfor %}
+
+    </ul>
+</div> -->

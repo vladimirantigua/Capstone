@@ -25,6 +25,8 @@ class Inventory(models.Model):
     quantity = models.IntegerField(default=0, null=True, blank=True)
     # this will allow when deleting a user to eliminate the models for that user: on_delete=models.PROTECT
     # user = model.ForeignKey(User, on_delete=models.PROTECT, related_name='inventory_items')
+    # add a comment for the detail page and create page in case the item need to be commented
+    #comments = models.TextField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         # to concat an integer need to wrap it like this + ' - ' + str(self.quantity)
