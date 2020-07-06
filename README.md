@@ -43,10 +43,14 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
         - [x] puchase date
         - [x] expiration date
         - [x] quantity
+        - [ ] comment field text area to add comment for IT equipment
        ## user
-         - [ ] login(email adress)
+         - [ ] login(email or username)
          - [ ] password
+         - [ ] registration page
+         - [ ] user profile page
            - [ ] Matthew suggest to use the Django Built in User System
+           
 
 # Forms
 
@@ -59,6 +63,10 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
      - [ ] Registration page for the - IT staff to register to create an account to access the inventory management
      - [ ] User profile page in case the - IT staff would like to update their inventory management registration account
      - [ ] page list all the inventory items 
+     - [ ] Home or Index page user will be able to see after login
+     - [ ] Index Page see if I will be better to combine the Home and Index Page or it is better to keep it separate
+     - [ ] Detail page list individual item see if I can add a photo for each of the laptop models
+     - [ ] Add Equipment to create and submit new equipment manually 
      - [ ] search / retrieve button to search for a particular inventory item
           - [ ] think about the user experience and what the IT staff see when they visit the inventory management page
 
