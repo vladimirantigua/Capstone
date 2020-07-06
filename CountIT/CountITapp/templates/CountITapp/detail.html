@@ -90,7 +90,9 @@
                     <textarea class="form-control" id="comm" name="comments"> {{item.comments}}</textarea>
                 </div>
             </div>
-            <form action="{% url 'CountITa[[]]:index' %}" method="post">
+
+            <form action="{% url 'CountITapp:index' %}" method="GET">
+                <!-- <form action="{% url 'CountITapp:index' %}" method="get"> -->
                 {% csrf_token %}
 
                 <button type="submit" class="btn btn-primary">Go Back to Home Page</button>
@@ -105,6 +107,7 @@
     </body>
 
 </html>
+
 <!-- ADD A BACK BUTTON BELOW:  -->
 <!-- <form action="{% url 'CountITapp:index' %}" method="post"> -->
 <!-- {% csrf_token %} -->
