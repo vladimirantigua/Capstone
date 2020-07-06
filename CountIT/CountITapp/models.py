@@ -1,4 +1,6 @@
 from django.db import models
+# from django.contrib.auth.models import CountITapp
+#from django.utils import timezone
 
 
 # Create your models here.
@@ -21,6 +23,8 @@ class Inventory(models.Model):
     expiration_date = models.DateTimeField(null=True, blank=True)
     # quantity = will help mantain proper level of equipment on stock for each of the four quarters during the physical year
     quantity = models.IntegerField(default=0, null=True, blank=True)
+    # this will allow when deleting a user to eliminate the models for that user: on_delete=models.PROTECT
+    # user = model.ForeignKey(User, on_delete=models.PROTECT, related_name='inventory_items')
 
     def __str__(self):
         # to concat an integer need to wrap it like this + ' - ' + str(self.quantity)

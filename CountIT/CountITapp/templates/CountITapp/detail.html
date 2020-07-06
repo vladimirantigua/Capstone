@@ -41,12 +41,12 @@
                 <tr>
                     <tr class="number"></tr>
                     <td>{{ item.equipment_name }}</td>
-                    <td>{{ inventory_item.equipment_model }}</td>
-                    <td>{{ inventory_item.asset_tag }}</td>
-                    <td>{{ inventory_item.service_tag }}</td>
-                    <td>{{ inventory_item.purchase_date }}</td>
-                    <td>{{ inventory_item.expiration_date }}</td>
-                    <td>{{ inventory_item.quantity }}</t>
+                    <td>{{ item.equipment_model }}</td>
+                    <td>{{ item.asset_tag }}</td>
+                    <td>{{ item.service_tag }}</td>
+                    <td>{{ item.purchase_date }}</td>
+                    <td>{{ item.expiration_date }}</td>
+                    <td>{{ item.quantity }}</t>
                         <!-- <td><img src="{{laptop.image_front}}"></td>-->
 
                 </tr>
@@ -65,12 +65,12 @@
 </body>
 
 </html>
-
-<!-- <form action="{% url 'pokedex:index' %}" method="post"> -->
+<!-- ADD A BACK BUTTON BELOW:  -->
+<!-- <form action="{% url 'CountITapp:index' %}" method="post"> -->
 <!-- {% csrf_token %} -->
 <!-- Back button to go back to the Index - Home Page-->
 <!-- See how can I add the following class on the main form =  class="was-validated-->
-<!-- <button type="submit" class="btn btn-primary">Go Back to the Pokemon Home Page</button> -->
+<!-- <button type="submit" class="btn btn-primary">Go Back to the CountITapp Home Page</button> -->
 <!-- </form> -->
 
 <!-- 

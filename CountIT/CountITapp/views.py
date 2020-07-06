@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 from .forms import InventoryForm
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
@@ -21,10 +22,12 @@ from django.core.paginator import Paginator
 
 # retrieve data from the database and pass it to the template
 
-
+# login_required
 def index(request):
     # Order by quantity the items with less items at the top
     inventory_items = Inventory.objects.order_by('quantity')
+    #inventory_items = request.user.inventory_items.order_by('quantity')
+
     # Make a request to the page with GET because we are getting the page instead of post from the browser this is why is it is capital GET
     # page is one of the string objects and 1 is the page the page starts this is what is going to be display at the button of my page
     page = request.GET.get('page', 1)
@@ -65,7 +68,7 @@ def index(request):
 # detail view
 
 
-def detail(request, id):  # contact_id each person have a unique contact_id
+def detail(request, id):  # IT_item_id each person have a unique IT_item_id
     # I am searching by number
     # id=id get the inventory object whose id is the one I pass in the function
     item = get_object_or_404(Inventory, id=id)
@@ -73,10 +76,14 @@ def detail(request, id):  # contact_id each person have a unique contact_id
     # for item in items.IT_items.all():
     #     # print(item)
     #     item.append(item.name)
+    context = {
+        'item': item
+    }
 
-    # {'contact': contact}) this is giving a single contact this is why is singular because when we click the name of one of the people in the contact list it will give only that person contact details instead of everyone else
+    # {'IT_item': IT_item}) this is giving a single IT_item this is why is singular because when we click the name of one of the people in the IT_item list it will give only that person IT_item details instead of everyone else
     # to get a list of the types to turn the query set of the types into a list: list(IT_quipment.types.all())
-    return render(request, 'CountITapp/search.html', {'item': item})
+    # return render(request, 'CountITapp/edit.html', {'item': item})
+    return render(request, 'CountITapp/detail.html', context)
 
 # https://docs.djangoproject.com/en/3.0/ref/request-response/
 # https://stackoverflow.com/questions/38251922/logic-behind-formrequest-post-or-none

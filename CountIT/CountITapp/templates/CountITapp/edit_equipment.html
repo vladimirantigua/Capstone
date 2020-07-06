@@ -1,4 +1,3 @@
-{% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>"Added Equipment"</title>
+    <title>"Edit IT Equipment"</title>
     <style>
         /* copy css from external file over*/
         /* replace hard-coded path for image with {% static ... %}*/
@@ -31,26 +30,21 @@
         <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
     </div>
     <div id="font_fun">
-        <!-- <ul>
+        <h1>Edit IT Equipment</h1>
+        <ul>
             {% for inventory_item in inventory_items %}
             <li>{{ inventory_item.equipment_name }}, {{ inventory_item.equipment_model }}, {{ inventory_item.asset_tag }}, {{ inventory_item.purchase_date }}, {{ inventory_item.expiration_date }}
+
             </li>
             {% endfor %}
-
-
-        </ul> -->
-        <form action="{% url 'CountITapp:add_equipment' %}" method="POST">
-            {% csrf_token %} {{form}}
-            <input type="submit" value="Save">
-
-
-        </form>
+            <a href="{% url 'CountITapp:logout_user' %}">logout</a>
+        </ul>
     </div>
 
-    <!-- add add function to view.py -->
-    <!-- add a form to add IT items -->
-    <!-- add a search button -->
+    <!-- add edit function to view.py -->
+    <!-- add an edit form -->
     <!-- add a back button to the home page -->
+
 
     <div id="footer">
         <p>Created by: Vladimir Antigua 30 Jun 2020</p>
