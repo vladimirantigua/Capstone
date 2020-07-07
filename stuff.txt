@@ -1,0 +1,175 @@
+<!-- after I get the top Nav working insert this one below and customize it: -->
+
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'CountITapp:equipment' %}">"CountIT" IT Inventory Webapp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'CountITapp:equipment' %}">Equipment <span
+                        class="sr-only">(current)</span></a>
+            </li> -->
+<!-- <li class="nav-item">
+                <a href="{% url 'users:login' %}">login</a>
+                <a href="{% url 'users:register' %}">register</a>
+                <a href="{% url 'CountITapp:equipment' %}">view equipment</a>
+            </li> -->
+<!-- <li class="nav-item">
+                <a href="{% url 'users:login' %}">login</a>
+
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'users:register' %}">register</a>
+            </li>
+            <li class="nav-item">
+
+                <a href="{% url 'CountITapp:equipment' %} ">view equipment</a>
+            </li>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav> -->
+
+
+
+
+
+========================================= SEARCH BELOW WHEN I DELETE FROM THE VIEW it create issues with the index page ========= see if it will be possible to delete it
+
+deleted the search file and the search views: 
+
+
+# IT Items query search:
+def search(query=None):
+    queryset = []
+    # this will do the search and divide the results with the coma
+    queries = query.split(" ")
+    # create a loop to search for the query:
+    for q in queries:
+        IT_items = Inventory.objects.filter(Q(types__name__icontains=q)
+                                            # icontain will eliminate any capitalization types__number__icontains
+                                            | Q(equipment_name__icontains=query)
+                                            # icontain will eliminate any capitalization types__number__icontains
+                                            | Q(equipment_model__icontains=query)
+                                            | Q(asset_tag__icontains=query)
+                                            | Q(service_tag__icontains=query)
+                                            | Q(purchase_date__icontains=query)
+                                            # in case I want to add an equipment image later and enable search:
+                                            # | Q(image_front__icontains=query)
+                                            # icontain will eliminate any capitalization
+                                            | Q(expiration_date__icontains=query)
+                                            | Q(quantity__icontains=query))
+
+    for IT_item in IT_items:  # to loop through each of the query
+        queryset.append(IT_item)  # to add the to the query set
+    # set will make sure the return is unique and then it is converted into a list that can be used in the template
+    return list(set(queryset))
+
+
+==================================================== INDEX BELOW ===========================
+
+
+<!-- {% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>"Count IT"</title>
+    <style> -->
+<!-- /* copy css from external file over*/
+        /* replace hard-coded path for image with {% static ... %}*/
+        /* test it in your browser */
+        /*         
+        #footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+        } */ -->
+<!-- </style>
+</head>
+
+<body> -->
+<!-- add logo later -->
+<!-- <div id="logo" class="col-sm-6 banner-image">
+        <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
+    </div> -->
+
+
+
+
+<!-- <div id="font_fun"> -->
+
+<!-- <ul>
+            {% for inventory_item in inventory_items %}
+            <li>{{ inventory_item.equipment_name }}, {{ inventory_item.equipment_model }}, {{ inventory_item.asset_tag }}, {{ inventory_item.purchase_date }}, {{ inventory_item.expiration_date }}
+
+            </li>
+            {% endfor %}
+
+        </ul> -->
+<!-- {% for item in items %}
+        <a href="{% url 'CountIPapp:detail' item.id %}"> {{ item.equipment_name }},
+            {{ item.equipment_model }},{{ item.quantity }} </a>
+    </div>
+    {% endfor %}
+
+    <div>
+
+        <a href="{% url 'CountITapp:add_equipment' %}"><button type="submit" id="btn-primary"
+                class="btn btn-primary">Add
+                IT Equipment</button></a>
+
+    </div>
+    <a href="{% url 'CountITapp:logout_user' %}">logout</a> -->
+<!-- make this public -->
+<!-- <footer id="footer">
+        <hr />
+        <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
+    </footer>
+</body>
+
+
+</html> -->
+
+
+<!-- 
+
+
+<div id="font_fun">
+    <ul>
+        {% for inventory_item in inventory_items %}
+        <li>{{ inventory_item.equipment_name }}, {{ inventory_item.equipment_model }}, {{ inventory_item.asset_tag }},
+            {{ inventory_item.purchase_date }}, {{ inventory_item.expiration_date }}
+
+        </li>
+        {% endfor %}
+
+    </ul>
+</div> -->

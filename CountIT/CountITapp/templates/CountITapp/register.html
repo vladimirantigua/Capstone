@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Register Page</title>
     <style>
 
@@ -14,17 +16,23 @@
 </head>
 
 <body>
-    <div id="register_logo" class="col-sm-6 banner-image">
-        <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
+    <!-- recaptcha -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <div id="register_logo" class="col-sm-6 banner-image"> -->
+    <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
     </div>
     <!-- <h1>Register Page</h1> -->
     {% if message %}
     <div class="message">{{message}}</div>
     {% endif %}
     </div>
-
+    <!-- {%if message == 'invalid_recaptcha'%}
+    <div style="color:bisque">Invalid Recaptcha</div>
+    {% endif %} -->
     <form action="{% url 'CountITapp:register_page' %}" method="post">
         {% csrf_token %}
+
         <div class="container">
             <h1>Register Page</h1>
             <p>Please complete this form to create an account.</p>
@@ -43,8 +51,9 @@
             <input type="password" placeholder="Repeat Password" name="retype_password" id="psw-repeat" required>
             <hr>
             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-            <button type="submit" class="registerbtn">Register</button>
+            <div class="g-recaptcha" data-sitekey="6Lfwga4ZAAAAADneAUX7K_ajgPjsn2Wc-hl4TGSr"></div>
+            <button type="submit" id=btn_submit>Register</button>
+            <!-- class="registerbtn" -->
         </div>
 
         <div class="container signin">
@@ -57,6 +66,23 @@
     <!-- <div id="footer">
         <p>Created by: Vladimir Antigua 30 Jun 2020</p>
     </div> -->
+
+    <!--recaptcha is used to void for people by over flowing the data base for spanning the database add the input validation frontend  -->
+
+    <script type="text/javascript">
+        let btn_submit = document.querySelector('#btn_submit')
+        let input_password = document.querySelector('#input_password')
+        let input_retype_password = document.querySelector('#input_retype_password')
+        let password_match_alert = document.querySelector('#password_match_alert')
+        btn_submit.addEventListener('click', function(event) {
+            // alert('!!!!')
+            if (input_password.value != input_retype_password.value) { // if the passwords entered aren't equal
+                event.preventDefault() // prevent the form submission
+                password_match_alert.style.display = ''
+                window.scrollTo(0, 0)
+            }
+        })
+    </script>
 </body>
 
 </html>

@@ -9,13 +9,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from datetime import datetime
-from .forms import InventoryForm
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
 import requests
 # when add the recacha need to import the secret keys
-# from .import secrets
+from .import secrets
 
 
 # Create your views here.
@@ -29,46 +28,8 @@ import requests
 # login_required
 def index(request):
     # Order by quantity the items with less items at the top
-    inventory_items = Inventory.objects.order_by('quantity')
-    # inventory_items = request.user.inventory_items.order_by('quantity')
 
-    # Make a request to the page with GET because we are getting the page instead of post from the browser this is why is it is capital GET
-    # page is one of the string objects and 1 is the page the page starts this is what is going to be display at the button of my page
-    page = request.GET.get('page', 1)
-
-    # paginator need to be done before the context variable below if do it after it will not show
-    # create a variable and bring the model from line 6 Paginator
-    # this will print 20 IT ITEMS per page
-    paginator = Paginator(inventory_items, 15)
-    # this is saying for every 15 IT_EQUIPMENT I need to create a new page
-    inventory_items = paginator.page(page)
-
-    # inventory_items = CountIT.objects.all().order_by('equipment_model')
-    context = {
-        'inventory_items': inventory_items
-    }
-
-    if request.method == "POST":
-        query = request.POST['q']
-        # print(type(query))
-        # to void searching on empty field on the search bar do the following:
-        if query:
-
-            items = Inventory.objects.filter(
-                Q(equipment_name__icontains=query)
-                # icontain will eliminate any capitalization types__number__icontains
-                | Q(equipment_model__icontains=query)
-                | Q(asset_tag__icontains=query)
-                | Q(service_tag__icontains=query)
-                | Q(purchase_date__icontains=query)
-                # in case I want to add an image and how and be able to search it
-                # | Q(image_front__icontains=query)
-                # icontain will eliminate any capitalization
-                | Q(expiration_date__icontains=query)
-                | Q(quantity__icontains=query))
-            context['query'] = items
-
-    return render(request, 'CountITapp/index.html', context)
+    return render(request, 'CountITapp/index.html')
 
 # detail view
 
@@ -97,8 +58,7 @@ def detail(request, id):  # IT_item_id each person have a unique IT_item_id
 
 
 def add_IT_equipment_page(request):
-    form = InventoryForm()
-    return render(request, 'CountITapp/add_equipment.html', {'form': form})
+    return render(request, 'CountITapp/add_equipment.html', {})
 
 
 def add_equipment(request):
@@ -223,12 +183,46 @@ def search(query=None):
 @login_required
 # Login page view
 def equipment(request):
-    inventory_items = Inventory.objects.all()
+    # inventory_items = Inventory.objects.all()
+    inventory_items = Inventory.objects.order_by('quantity')
     context = {
         'items': inventory_items
     }
-    print(inventory_items)
-    # print(request.user.username)
+    # inventory_items = request.user.inventory_items.order_by('quantity')
+
+    # Make a request to the page with GET because we are getting the page instead of post from the browser this is why is it is capital GET
+    # page is one of the string objects and 1 is the page the page starts this is what is going to be display at the button of my page
+    # page = request.GET.get('page', 1)
+
+    # paginator need to be done before the context variable below if do it after it will not show
+    # create a variable and bring the model from line 6 Paginator
+    # this will print 20 IT ITEMS per page
+    #paginator = Paginator(inventory_items, 15)
+    # this is saying for every 15 IT_EQUIPMENT I need to create a new page
+    # inventory_items = paginator.page(page)
+
+    # inventory_items = CountIT.objects.all().order_by('equipment_model')
+
+    if request.method == "POST":
+        query = request.POST['q']
+        # print(type(query))
+        # to void searching on empty field on the search bar do the following:
+        if query:
+
+            items = Inventory.objects.filter(
+                Q(equipment_name__icontains=query)
+                # icontain will eliminate any capitalization types__number__icontains
+                | Q(equipment_model__icontains=query)
+                | Q(asset_tag__icontains=query)
+                | Q(service_tag__icontains=query)
+                | Q(purchase_date__icontains=query)
+                # in case I want to add an image and how and be able to search it
+                # | Q(image_front__icontains=query)
+                # icontain will eliminate any capitalization
+                | Q(expiration_date__icontains=query)
+                | Q(quantity__icontains=query))
+            context['query'] = items
+            print(items)
     return render(request, 'CountITapp/equipment.html', context)
 
 # login page view
@@ -262,6 +256,21 @@ def login_page(request):
 def register_page(request):
 
     if request.method == 'POST':
+        # do the reCAPTCHA before submitting the form
+        recaptcha_response = request.POST['g-recaptcha-response']
+        # https://developers.google.com/recaptcha/docs/verify
+        # https://www.w3schools.com/python/ref_requests_post.asp#:~:text=Python%20Requests%20post()%20Method&text=The%20post()%20method%20sends,some%20data%20to%20the%20server.
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
+            'secret': secrets.recaptcha_secret_key,
+            'response': recaptcha_response
+
+        })
+        recaptcha_response_data = response.json()
+        if not recaptcha_response_data['success']:
+            return render(request, 'CountITapp/register.html')
+            # to add a message for the recaptcha see how can I add message for my register page and login page message = request.GET('message','')
+            # return render(request, 'CountITapp/register.html', {'message':message})
+            # return render(request, 'CountITapp/register.html')+'?message=invalid_recaptcha'
         # make sure to alway print the form
         # print(request.POST)
         # get th info out of the form

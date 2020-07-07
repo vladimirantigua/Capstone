@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>"Added Equipment"</title>
     <style>
         /* copy css from external file over*/
@@ -41,8 +40,23 @@
 
         </ul> -->
         <form action="{% url 'CountITapp:add_equipment_post' %}" method="POST">
-            {% csrf_token %} 
-            {{form}}
+            {% csrf_token %}
+            <label for="id_equipment_name">Equipment name:</label>
+            <input type="text" name="equipment_name" maxlength="75" id="id_equipment_name">
+            <label for="id_equipment_model">Equipment model:</label>
+            <input type="text" name="equipment_model" maxlength="30" id="id_equipment_model">
+            <label for="id_asset_tag">Asset tag:</label>
+            <input type="text" name="asset_tag" maxlength="20" id="id_asset_tag">
+            <label for="id_service_tag">Service tag:</label>
+            <input type="text" name="service_tag" maxlength="30" id="id_service_tag">
+            <label for="id_purchase_date">Purchase date:</label>
+            <input type="date" name="purchase_date" id="id_purchase_date">
+            <label for="id_expiration_date">Expiration date:</label>
+            <input type="date" name="expiration_date" id="id_expiration_date">
+            <label for="id_quantity">Quantity:</label>
+            <input type="number" name="quantity" value="0" id="id_quantity">
+            <label for="id_comments">Comments:</label><textarea name="comments" cols="40" rows="10" maxlength="200" id="id_comments"></textarea>
+
             <input type="submit" value="Save">
         </form>
     </div>

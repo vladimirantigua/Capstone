@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .forms import InventoryForm
 from .models import Inventory
 
 # Register your models here.
@@ -11,7 +10,7 @@ from .models import Inventory
 class InventoryAdmin(admin.ModelAdmin):
     list_display = ['equipment_name', 'equipment_model',
                     'asset_tag', 'service_tag', 'purchase_date', 'expiration_date', 'quantity', 'comments']
-    form = InventoryForm
+
     filter = ['equipment_model']
     search = ['equipment_name', 'equipment_model']
 

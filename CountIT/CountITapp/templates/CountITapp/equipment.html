@@ -75,53 +75,48 @@
             </tbody>
         </table>
     </div>
-    <form action="{% url 'CountITapp:index' %}" method="GET">
-        {% csrf_token %}
-        <!-- Back button to go back to the Index - Home Page-->
-        <!-- See how can I add the following class on the main form = class="was-validated-->
-        <button type="submit" id="back" class="btn btn-primary">Go Back to the Home Page</button>
-    </form>
+    <a id="back" href="{% url 'CountITapp:index' %}" class="btn btn-primary">Go Back to the Home Page</a>
     </div>
     <!-- add a search button at the top -->
 
-    <div id="footer">
-        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+
+
+    <div>
+        <form action="{% url 'CountITapp:equipment' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Search IT equipment" name="q" id="id">
+            <!-- Search button at the top of the Index - Home Page-->
+            <button type="submit" class="btn btn-primary">search</button>
+        </form>
     </div>
+    <div class="row">
+
+
+        <div class="col-6">
+            <h2 style="color:blue;"><i>Search Results:</i></h2>
+            {% for inventory in query %}
+            <div>
+
+                <!-- <img src="{{inventory.image_front}}"> -->
+
+                <a href="{% url 'CountITapp:detail' inventory.id %}"> {{inventory.equipment_name}}</a>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+        <div>
+
+            <a href="{% url 'CountITapp:add_equipment' %}">
+                <button id="btn-primary" class="btn btn-primary">Add IT Equipment</button>
+            </a>
+
+        </div>
+
+        <div id="footer">
+            <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+        </div>
 </body>
 
 </html>
-
-
-
-<div>
-    <form action="{% url 'CountITapp:equipment' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" placeholder="Search IT equipment" name='q' id="id">
-        <!-- Search button at the top of the Index - Home Page-->
-        <button type="submit" class="btn btn-primary">search</button>
-    </form>
-</div>
-<div class="row">
-    <div class="col-6">
-        {% for inventory_item in inventory_items %}
-        <div>
-
-            <!-- <p>"{{inventory_item.equipment_name}}"</p>
-            <p>"{{inventory_item.equipment_model}}"</p> -->
-            <a href="{% url 'CountITapp:detail' %}"> {{inventory_item.equipment_name}} }}</a>
-        </div>
-        {% endfor %}
-    </div>
-
-
-    <div class="col-6">
-        <h2 style="color:blue;"><i>Search Results:</i></h2>
-        {% for inventory in query %}
-        <div>
-
-            <!-- <img src="{{inventory.image_front}}"> -->
-
-            <a href="{% url 'CountITapp:detail' %}"> {{inventory_item.equipment_name}} }}</a>
-        </div>
-        {% endfor %}
-    </div>
