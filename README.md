@@ -50,6 +50,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
          - [ ] registration page
          - [ ] user profile page
            - [ ] Matthew suggest to use the Django Built in User System
+         - [ ]  add reCHAPTCHA to the registration form and login page
            
 
 # Forms
@@ -74,11 +75,12 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
   ## Week 1
     - [x] Create my models - focus on the data I want to have on my models and what data I need to collect from the user (IT staff) and also determine what data I will like to search with the user. 
-       - [ ] app.py
-       - [ ] url.py
-       - [ ] view.py after the models are completed think about he views and what the page should looks like 
+       - [x] app.py
+       - [x] url.py
+       - [x] view.py after the models are completed think about he views and what the page should looks like 
 
-    - [ ] Setup the user management system to login into the inventory management 
+    - [ ] Setup the user management system to login into the inventory management
+    - [ ] add reCAPTCHA to register page and login page
 
 
     - [ ] reminder  to commit each time I have completed a task 
@@ -122,6 +124,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
   - JavaScript
   - HTML & CSS
   - Bootstrap
+  - API.JS
 
 # Resources:
 
@@ -175,6 +178,9 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
     forms/
   - Installing django-crispy-forms https://django-crispy-forms.readthedocs.io/en/latest/install.html
   - Django Crispy Forms - what are they about? = https://www.merixstudio.com/blog/django-crispy-forms-what-are-they-about/
+  - reCAPTCHA = https://developers.google.com/recaptcha/docs/versions
+  - reCAPTCHA admin = https://www.google.com/recaptcha/admin/create
+  
 
 
   
