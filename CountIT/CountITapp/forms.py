@@ -13,5 +13,7 @@ from .models import Inventory
 class InventoryForm(forms.ModelForm):
     class Meta:
         model = Inventory
-        fields = ['equipment_name', 'equipment_model',
-                  'asset_tag', 'service_tag', 'purchase_date', 'expiration_date', 'quantity', 'comments']
+        fields = ['equipment_name', 'equipment_model', 'asset_tag', 'service_tag',
+                  'purchase_date', 'expiration_date', 'quantity', 'comments']
+# forms.DateField(widget=forms.DateInput(format = '%d/%m/%Y'),
+#                                  input_formats=('%d/%m/%Y',))

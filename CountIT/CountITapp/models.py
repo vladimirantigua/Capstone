@@ -30,7 +30,7 @@ class Inventory(models.Model):
 
     def __str__(self):
         # to concat an integer need to wrap it like this + ' - ' + str(self.quantity)
-        return self.equipment_name + ' - ' + self.equipment_model + ' - ' + self.asset_tag + ' - ' + self.service_tag + ' - ' + str(self.purchase_date) + ' - ' + str(self.expiration_date) + ' - ' + str(self.quantity) + ' - ' + self.comments
-
+        return self.equipment_name + ' - ' + self.equipment_model + ' - ' + self.asset_tag + ' - ' + self.service_tag + ' - ' + str(self.purchase_date) + ' - ' + str(self.expiration_date) + ' - ' + str(self.quantity) + ' - ' + str(self.comments)
+        # return self.equipment_name
 # check with the Matthew or TAs to see if my models are correct
 # see if I need to create a users models login or if I can use the build in Django user login check if need to create a user login pw if using the built in user that was created

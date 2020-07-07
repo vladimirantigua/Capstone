@@ -48,6 +48,16 @@ li a {
     transition: 0.5s;
 }
 
+.message {
+    font-style: italic;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: black;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+    transition: 0.5s;
+}
+
 #welcome_home {
     font-style: italic;
 }

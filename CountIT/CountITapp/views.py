@@ -125,7 +125,7 @@ def add_equipment(request):
                               purchase_date=purchase_date,
                               expiration_date=expiration_date,
                               quantity=quantity,
-                              image_front=image_front,
+                              #   image_front=image_front,
                               comments=comments)
     add_equipment.save()  # to save IT_equipment to the database
 
@@ -153,6 +153,7 @@ def edit_equipment(request, id):
 
 
 def edit_equipment_submit(request):
+    print(request.POST)
     # When creating a new IT Equipment in the new add_IT_equipment_page it will show and create a field for the equipment name
     equipment_name = request.POST['equipment_name']
     equipment_model = request.POST['equipment_model']
@@ -221,9 +222,14 @@ def search(query=None):
 # redirect to this page which is the login page: http://localhost:8000/CountITapp/login/?next=/CountITapp/home/ for the user to enter username and pw and then redirect to the home page
 @login_required
 # Login page view
-def home(request):
+def equipment(request):
+    inventory_items = Inventory.objects.all()
+    context = {
+        'items': inventory_items
+    }
+    print(inventory_items)
     # print(request.user.username)
-    return render(request, 'CountITapp/home.html')
+    return render(request, 'CountITapp/equipment.html', context)
 
 # login page view
 
@@ -246,7 +252,7 @@ def login_page(request):
         if 'next' in request.GET:
             # redirect to next in this case is the login page
             return HttpResponseRedirect(request.GET['next'])
-        return HttpResponseRedirect(reverse('CountITapp:home'))
+        return HttpResponseRedirect(reverse('CountITapp:equipment'))
 
     return render(request, 'CountITapp/login.html')
 
@@ -277,7 +283,7 @@ def register_page(request):
         login(request, user)
         # return HttpResponseRedirect(reverse('CountITapp:register'))
         # redirect to the homepage:
-        return HttpResponseRedirect(reverse('CountITapp:home'))
+        return HttpResponseRedirect(reverse('CountITapp:equipment'))
     print(request.POST)
     return render(request, 'CountITapp/register.html')
 

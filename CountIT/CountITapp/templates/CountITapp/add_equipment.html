@@ -1,4 +1,4 @@
-{% load static %} {% load crispy_forms_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>"Added Equipment"</title>
     <style>
         /* copy css from external file over*/
@@ -39,8 +40,8 @@
 
 
         </ul> -->
-        <form action="{% url 'CountITapp:add_equipment' %}" method="POST">
-            {% csrf_token %}
+        <form action="{% url 'CountITapp:add_equipment_post' %}" method="POST">
+            {% csrf_token %} 
             {{form}}
             <input type="submit" value="Save">
         </form>
