@@ -23,13 +23,13 @@
     <!-- the id="message" is not changing the color of the message I applied on the style.css find out why -->
     <div id="message">{{message}}</div>
     {% endif %}
-    <form action="{% url 'CountITapp:login_page' %}" method="post">
+    <form class="p-5" action="{% url 'CountITapp:login_page' %}" method="post">
         {% csrf_token %}
         <input type="text" name="username" placeholder="Enter your email as the Username" required />
         <input type="password" name="password" placeholder="Password" required />
-        <button type="submit">login</button>
+        <button class="btn btn-primary"type="submit">login</button>
     </form>
-    <div>Don't have an account? <a href="{% url 'CountITapp:register_page' %}">Register</a></div>
+    <div class="form-control" >Don't have an account? <a href="{% url 'CountITapp:register_page' %}">Register</a></div>
     <footer id="footer">
         <hr />
         <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
