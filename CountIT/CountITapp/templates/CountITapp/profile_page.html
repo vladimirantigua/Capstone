@@ -1,0 +1,73 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Profile Page</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- recaptcha -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <div id="register_logo" class="col-sm-6 banner-image"> -->
+    <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
+    </div>
+    
+    {% comment %} {% if message %}
+    <div class="message">{{message}}</div>
+    {% endif %}
+    </div>
+   {% endcomment %}
+   
+    <form action="{% url 'CountITapp:profile_page' %}" method="post">
+        {% csrf_token %}
+
+        <div class="container">
+            <h1>Edit Profile Page</h1>
+            <p>Please edit this form to update your login profile.</p>
+            <hr>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter an Email as the Username" name="username" id="email" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="retype_password" id="psw-repeat" required>
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            {% comment %} <div class="g-recaptcha" data-sitekey="6Lfwga4ZAAAAADneAUX7K_ajgPjsn2Wc-hl4TGSr"></div> {% endcomment %}
+            <button type="submit" id="btn_submit">Edit Profile</button>
+            
+        </div>
+
+        {% comment %} <div class="container signin">
+            <div>Already have an account? <a href="{% url 'CountITapp:login_page' %}">Signin</a></div>
+        </div> {% endcomment %}
+    </form>
+    <!-- Figure out how to make the footer not to interrupt with the signin button when 
+        the footer is commented the signing button works 
+        but signing does not work or I am unable to click it to go to the login page -->
+    <!-- <div id="footer">
+        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+    </div> -->
+
+
+    </script>
+</body>
+
+</html>

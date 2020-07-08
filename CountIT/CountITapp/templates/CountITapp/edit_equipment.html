@@ -35,13 +35,14 @@
     <!-- <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive"> -->
     <!-- </div> -->
     <div class="container">
-        <h2 style="color:blue;"><i>IT Inventory Detail Page:</i></h2>
+        <h2 style="color:blue;"><i> Edit IT Inventory Detail Page:</i></h2>
 
-
-        <form action="{% url 'CountITapp:edit_item_submit' %}" method="post">
+        
+        <form class="p-5"action="{% url 'CountITapp:edit_equipment' item.id %}" method="post">
             {% csrf_token %}
-            <div class="container">
-                <h2>Detail Page</h2>
+            {% comment %} just by taking the word container out of the div <div class="container"> it helped to allign the form correctly  {% endcomment %}
+            <div class="">
+                <h2> Edit Detail Page</h2>
                 <div class="form-group">
                     <label for="equiname"> Equipment Name:</label>
                     <input type="text" class="form-control" id="equipment_name" value="{{ item.equipment_name }}" name="equipment_name" required />

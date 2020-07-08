@@ -101,11 +101,48 @@ def delete(request, id):
     inventory.delete()
     return HttpResponseRedirect(reverse('CountITapp:index'))
 
-# edit IT_equipment:
+# edit IT_equipment combine submit and edit function:
 
 
 def edit_equipment(request, id):
     inventory = get_object_or_404(Inventory, id=id)
+    if request.method == "POST":
+        print(request.POST)
+        # When creating a new IT Equipment in the new add_IT_equipment_page it will show and create a field for the equipment name
+        equipment_name = request.POST['equipment_name']
+        equipment_model = request.POST['equipment_model']
+        asset_tag = request.POST['asset_tag']
+        service_tag = request.POST['service_tag']
+        purchase_date = request.POST['purchase_date']
+        # need to import from datetime import datetime. Also to parse the purchase and expiration
+        purchase_date = datetime.strptime(purchase_date, '%Y-%m-%d').date()
+        expiration_date = request.POST['expiration_date']
+        expiration_date = datetime.strptime(expiration_date, '%Y-%m-%d').date()
+        quantity = request.POST['quantity']
+        # in case I want to add an equipment image later:
+        # image_front = request.POST['image_front']
+        comments = request.POST['comments']
+
+        # Getting the editing inventory:
+        inventory = Inventory.objects.get(id=id)
+        # assign values to the Inventory properties:
+        inventory.equipment_name = equipment_name
+        inventory.equipment_model = equipment_model
+        inventory.asset_tag = asset_tag
+        inventory.service_tag = service_tag
+        inventory.purchase_date = purchase_date
+        inventory.expiration_date = expiration_date
+        inventory.quantity = quantity
+        # in case I want to add an equipment image later:
+        # inventory.image_front = image_front
+        inventory.comments = comments
+
+        inventory.save()  # to save IT_equipment to the database
+
+        # remember to putting a comma at the end
+        # redirecting to the detail page
+        return HttpResponseRedirect(reverse('CountITapp:detail', args=(inventory.id,)))
+
     context = {
         'item': inventory
     }
@@ -311,14 +348,46 @@ def logout_user(request):
 # profile page:
 
 
-@login_required
+# @login_required
 def profile_page(request):
-    return render(request, 'CountITapp:profile_page')
-# def IT_items(request):
-#     # Order by quantity the items with less items at the top
-#     search = Inventory.objects.order.all()
-#     # inventory_items = CountIT.objects.all().order_by('equipment_model')
-#     context = {
-#         'search': search
-#     }
-#     return render(request, 'IT_items/index.html', context)
+
+    if request.method == 'POST':
+        # do the reCAPTCHA before submitting the form
+        recaptcha_response = request.POST['g-recaptcha-response']
+        # https://developers.google.com/recaptcha/docs/verify
+        # https://www.w3schools.com/python/ref_requests_post.asp#:~:text=Python%20Requests%20post()%20Method&text=The%20post()%20method%20sends,some%20data%20to%20the%20server.
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
+            'secret': secrets.recaptcha_secret_key,
+            'response': recaptcha_response
+
+        })
+        recaptcha_response_data = response.json()
+        if not recaptcha_response_data['success']:
+            return render(request, 'CountITapp/register.html')
+            # to add a message for the recaptcha see how can I add message for my register page and login page message = request.GET('message','')
+            # return render(request, 'CountITapp/register.html', {'message':message})
+            # return render(request, 'CountITapp/register.html')+'?message=invalid_recaptcha'
+        # make sure to alway print the form
+        # print(request.POST)
+        # get th info out of the form
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        retype_password = request.POST['retype_password']
+        # input validation on the backend - to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
+        if password != retype_password:
+            return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
+        # check if a user with that username already exists
+        if User.objects.filter(username=username).exists():
+            # if User.objects.filter(email=email).exists():
+            return render(request, 'CountITapp/register.html', {'message': 'Please use a different username the username you entered already exists'})
+        # create the user, log them in, and redirect to the home page
+        # this will create all the hashing and create the user -- user = User.objects.create_user(username, email, password)
+        # if we want to utilize email as the username do it the format below by passing the username as the email (email, email, password)
+        user = User.objects.create_user(username, email, password)
+        login(request, user)
+        # return HttpResponseRedirect(reverse('CountITapp:register'))
+        # redirect to the homepage:
+        return HttpResponseRedirect(reverse('CountITapp:equipment'))
+    print(request.POST)
+    return render(request, 'CountITapp/profile_page.html', {})
