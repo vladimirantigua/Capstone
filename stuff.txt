@@ -219,3 +219,153 @@ def search(query=None):
 
 </html>
 
+
+
+
+
+
+-=========DETAIL PAGE ===  works also the back button to equipment page but the update button does not work: 
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IT Item Detail</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
+
+    <style>
+        /* #back {
+            margin-left: 96px;
+        }
+        
+        .table {
+            margin-left: 96px;
+        }
+        
+        .number {
+            margin-left: 96px;
+        }
+        
+        .container {
+            margin-left: 96px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- enable the logo later -->
+    <!-- <div id="logo" class="col-sm-6 banner-image"> -->
+    <!-- <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive"> -->
+    </div>
+    <div class="container">
+        <h2 style="color:blue;"><i>IT Inventory Detail Page:</i></h2>
+        <form class="p-1" action="{% url 'CountITapp:edit_equipment' item.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="container">
+                <h2>Detail Page</h2>
+                <div class="form-group">
+                    <label for="equiname"> Equipment Name:</label>
+                    <input type="text" class="form-control" id="Equiname" value="{{ item.equipment_name }}" name="equipment_name" required />
+                    <!-- We do not need a placeholder here because the form is already created and this is -->
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="equimodel">Equipment Model:</label>
+                    <input type="text" class="form-control" id="equimodel" value="{{ item.equipment_model }}" name="equipment_model" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="atag">Asset Tag</label>
+                    <input type="text" class="form-control" id="atag" value="{{ item.asset_tag }}" name="asset_tag" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="stag">Service Tag</label>
+                    <input type="text" class="form-control" id="stag" value="{{ item.service_tag }}" name="service_tag " required />
+                    <!-- <div> {{ item.service_tag }}</div> -->
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="pdate">Purchase Date</label>
+                    <input type="date" class="form-control" id="pdate" value="{{ item.purchase_date|date:'Y-m-d'}}" name="purchase_date" required />
+                    <!-- <div> {{ item.purchase_date}}</div> -->
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="edate">Expiration Date</label>
+                    <input type="date" class="form-control" id="edate" value="{{ item.expiration_date|date:'Y-m-d'}}" name="expiration_date" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="qty">Quantity</label>
+                    <input type="text" class="form-control" id="qty" value="{{ item.quantity}}" name="quantity" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments:</label>
+                    <textarea class="form-control" id="comm" name="comments"> {{item.comments}}</textarea>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Update Inventory</button>
+        </form>
+
+        <!-- make this a link back button -->
+        <form action="{% url 'CountITapp:equipment' %}" method="GET">
+            <!-- <form action="{% url 'CountITapp:index' %}" method="get"> -->
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-primary">Go Back to Equipment Page</button>
+
+        </form>
+
+    </div>
+    <!-- add the footer later because in blocking the back button  -->
+    <!-- <footer id="footer">
+        <hr />
+        <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
+    </footer> -->
+
+</body>
+
+</html>
+
+<!-- ADD A BACK BUTTON BELOW:  -->
+<!-- <form action="{% url 'CountITapp:index' %}" method="post"> -->
+<!-- {% csrf_token %} -->
+<!-- Back button to go back to the Index - Home Page-->
+<!-- See how can I add the following class on the main form =  class="was-validated-->
+<!-- <button type="submit" class="btn btn-primary">Go Back to the CountITapp Home Page</button> -->
+<!-- </form> -->
+
+<!-- 
+               equipment_name  
+               equipment_model  
+               asset_tag 
+               service_tag  
+               str(self.purchase_date)  
+               str(self.expiration_date) 
+               str(self.quantity) 
+-->
+
+
+
+
+<!-- Add this sample form instead but customize it to fit the equipment model
+take the path and all the things from the above table since it is working for me now but save 
+it on a text file in case it does not want to renter for me take the title and the back button if the other is not cooler -->

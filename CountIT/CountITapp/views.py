@@ -108,6 +108,7 @@ def edit_equipment(request, id):
     inventory = get_object_or_404(Inventory, id=id)
     if request.method == "POST":
         print(request.POST)
+        print(request.POST['purchase_date'])
         # When creating a new IT Equipment in the new add_IT_equipment_page it will show and create a field for the equipment name
         equipment_name = request.POST['equipment_name']
         equipment_model = request.POST['equipment_model']
@@ -141,11 +142,13 @@ def edit_equipment(request, id):
 
         # remember to putting a comma at the end
         # redirecting to the detail page
+        # if it is a POST request it will run everything inside the if statement above and return to the detail page
         return HttpResponseRedirect(reverse('CountITapp:detail', args=(inventory.id,)))
 
     context = {
         'item': inventory
     }
+    # if it is a GET request will return to the edit equipment page so user can update the form
     return render(request, 'CountITapp/edit_equipment.html', context)
 
 
