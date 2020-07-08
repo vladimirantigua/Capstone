@@ -9,19 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>"Added Equipment"</title>
     <style>
-        /* copy css from external file over*/
-        /* replace hard-coded path for image with {% static ... %}*/
-        /* test it in your browser */
-        /*         
-        #footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            color: white;
-            text-align: center;
-            font-size: 20px;
-        } */
+
     </style>
 </head>
 
@@ -42,22 +30,24 @@
         <form action="{% url 'CountITapp:add_equipment_post' %}" method="POST">
             {% csrf_token %}
             <label for="id_equipment_name">Equipment name:</label>
-            <input type="text" name="equipment_name" maxlength="75" id="id_equipment_name">
+            <input class="form-control" type="text" name="equipment_name" maxlength="75" id="Equiname" required>
             <label for="id_equipment_model">Equipment model:</label>
-            <input type="text" name="equipment_model" maxlength="30" id="id_equipment_model">
+            <input class="form-control" type="text" name="equipment_model" maxlength="30" id="equimodel" required>
             <label for="id_asset_tag">Asset tag:</label>
-            <input type="text" name="asset_tag" maxlength="20" id="id_asset_tag">
+            <input class="form-control" type="text" name="asset_tag" maxlength="20" id="id_asset_tag" required>
             <label for="id_service_tag">Service tag:</label>
-            <input type="text" name="service_tag" maxlength="30" id="id_service_tag">
+            <input class="form-control" type="text" name="service_tag" maxlength="30" id="id_service_tag" required>
             <label for="id_purchase_date">Purchase date:</label>
-            <input type="date" name="purchase_date" id="id_purchase_date">
+            <input class="form-control" type="date" name="purchase_date" id="id_purchase_date" required>
             <label for="id_expiration_date">Expiration date:</label>
-            <input type="date" name="expiration_date" id="id_expiration_date">
+            <input class="form-control" type="date" name="expiration_date" id="id_expiration_date" required>
             <label for="id_quantity">Quantity:</label>
-            <input type="number" name="quantity" value="0" id="id_quantity">
-            <label for="id_comments">Comments:</label><textarea name="comments" cols="40" rows="10" maxlength="200" id="id_comments"></textarea>
+            <input class="form-control" type="number" name="quantity" value="0" id="id_quantity">
+            <label for="id_comments">Comments:</label><textarea name="comments" cols="40" rows="10" maxlength="200" class="form-control" id="id_comments"></textarea>
 
-            <input type="submit" value="Save">
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Save">
+            </div>
         </form>
     </div>
 

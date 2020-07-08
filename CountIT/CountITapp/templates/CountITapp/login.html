@@ -1,4 +1,5 @@
-{% load static %} {% load crispy_forms_tags %}
+{% extends 'CountITapp/base.html' %} 
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,8 @@
 </head>
 
 <body>
+{% block content %}
+<h1>Welcome to CountIT!</h1>
     <div id="login_logo" class="col-sm-6 banner-image">
         <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
     </div>
@@ -31,7 +34,13 @@
         <hr />
         <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
     </footer>
-
+{% endblock %}
 </body>
 
+
 </html>
+
+
+
+
+

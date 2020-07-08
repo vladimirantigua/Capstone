@@ -180,9 +180,13 @@ def search(query=None):
 # @login_required requires that the users have to login and it will redirect to the login page to the page we set at the settings Login URLin to see the information on the site this is a decorator @login_required similar to the one we used in Flask
 # if trying to go to the Home Page and you have not logged in yet it will
 # redirect to this page which is the login page: http://localhost:8000/CountITapp/login/?next=/CountITapp/home/ for the user to enter username and pw and then redirect to the home page
-@login_required
+# @login_required
 # Login page view
 def equipment(request):
+    # print(request.user.is_authenticated)
+    if request.user.is_authenticated == False:
+        # redirecting to the login page:
+        return render(request, 'CountITapp/login.html')
     # inventory_items = Inventory.objects.all()
     inventory_items = Inventory.objects.order_by('quantity')
     context = {

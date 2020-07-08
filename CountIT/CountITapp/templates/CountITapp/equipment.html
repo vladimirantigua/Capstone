@@ -41,82 +41,82 @@
     </div>
     <div class="container">
         <h2 style="color:blue;"><i>IT Inventory Equipment Page:</i></h2>
-
-        <table class="table">
-            <thead>
-                <tr>
-
-                    <th>Equipment Name</th>
-                    <th>Equipment Model</th>
-                    <th>Asset Tag </th>
-                    <th>Service Tag</th>
-                    <th>Purchase Date</th>
-                    <th>Expiration Date</th>
-                    <th>Quantity</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in items %}
-
-                <tr>
-                    <tr class="number"></tr>
-                    <td>{{ item.equipment_name }}</td>
-                    <td>{{ item.equipment_model }}</td>
-                    <td>{{ item.asset_tag }}</td>
-                    <td>{{ item.service_tag }}</td>
-                    <td>{{ item.purchase_date }}</td>
-                    <td>{{ item.expiration_date }}</td>
-                    <td>{{ item.quantity }}</t>
-                        <!-- <td><img src="{{laptop.image_front}}"></td>-->
-
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <a id="back" href="{% url 'CountITapp:index' %}" class="btn btn-primary">Go Back to the Home Page</a>
-    </div>
-    <!-- add a search button at the top -->
-
-
-
-    <div>
-        <form action="{% url 'CountITapp:equipment' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" placeholder="Search IT equipment" name="q" id="id">
-            <!-- Search button at the top of the Index - Home Page-->
-            <button type="submit" class="btn btn-primary">search</button>
-        </form>
-    </div>
-    <div class="row">
-
-
-        <div class="col-6">
-            <h2 style="color:blue;"><i>Search Results:</i></h2>
-            {% for inventory in query %}
-            <div>
-
-                <!-- <img src="{{inventory.image_front}}"> -->
-
-                <a href="{% url 'CountITapp:detail' inventory.id %}"> {{inventory.equipment_name}}</a>
-            </div>
-            {% endfor %}
-        </div>
+        <!-- add a search button at the top -->
 
 
 
         <div>
-
-            <a href="{% url 'CountITapp:add_equipment' %}">
-                <button id="btn-primary" class="btn btn-primary">Add IT Equipment</button>
-            </a>
-
+            <form action="{% url 'CountITapp:equipment' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="Search IT equipment" name="q" id="id">
+                <!-- Search button at the top of the Index - Home Page-->
+                <button type="submit" class="btn btn-primary">search</button>
+            </form>
         </div>
+        <div class="row">
 
-        <div id="footer">
-            <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+
+            <div class="col-6">
+                <h2 style="color:blue;"><i>Search Results:</i></h2>
+                {% for inventory in query %}
+                <div>
+
+                    <!-- <img src="{{inventory.image_front}}"> -->
+
+                    <a href="{% url 'CountITapp:detail' inventory.id %}"> {{inventory.equipment_name}}</a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>Equipment Name</th>
+                        <th>Equipment Model</th>
+                        <th>Asset Tag </th>
+                        <th>Service Tag</th>
+                        <th>Purchase Date</th>
+                        <th>Expiration Date</th>
+                        <th>Quantity</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+
+                    <tr>
+                        <tr class="number"></tr>
+                        <td>{{ item.equipment_name }}</td>
+                        <td>{{ item.equipment_model }}</td>
+                        <td>{{ item.asset_tag }}</td>
+                        <td>{{ item.service_tag }}</td>
+                        <td>{{ item.purchase_date }}</td>
+                        <td>{{ item.expiration_date }}</td>
+                        <td>{{ item.quantity }}</t>
+                            <!-- <td><img src="{{laptop.image_front}}"></td>-->
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+        <a id="back" href="{% url 'CountITapp:index' %}" class="btn btn-primary">Go Back to the Home Page</a>
+    </div>
+
+
+
+    <div>
+
+        <a href="{% url 'CountITapp:add_equipment' %}">
+            <button id="btn-primary" class="btn btn-primary">Add IT Equipment</button>
+        </a>
+
+    </div>
+
+    <div id="footer">
+        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
+    </div>
 </body>
 
 </html>

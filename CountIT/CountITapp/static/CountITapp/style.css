@@ -6,6 +6,7 @@ li a {
     background-size: cover;
     margin: 1px 180px 40px 100px;
     margin-left: 1px;
+    z-index: -1;
 }
 
 #logo {
@@ -43,7 +44,7 @@ li a {
     font-size: 20px;
     background: transparent;
     border: none;
-    color: black;
+    color: white;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
     transition: 0.5s;
 }
@@ -53,7 +54,7 @@ li a {
     font-size: 20px;
     background: transparent;
     border: none;
-    color: black;
+    color: white;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
     transition: 0.5s;
 }
@@ -100,6 +101,11 @@ body {
 
 #btn-primary {
     margin: 10px 180px 40px 100px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+}
+
+#btn-second {
+    margin: 5px 180px 40px 100px;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
 }
 
@@ -161,7 +167,7 @@ hr {
 
 /* Set a style for the submit button */
 
-.registerbtn {
+#btn_submit {
     background-color: #4CAF50;
     color: white;
     padding: 16px 20px;
@@ -172,7 +178,7 @@ hr {
     opacity: 0.9;
 }
 
-.registerbtn:hover {
+#btn_submit:hover {
     opacity: 1;
 }
 
