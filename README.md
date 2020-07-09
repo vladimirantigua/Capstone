@@ -178,6 +178,8 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
     forms/
   - Installing django-crispy-forms https://django-crispy-forms.readthedocs.io/en/latest/install.html
   - Django Crispy Forms - what are they about? = https://www.merixstudio.com/blog/django-crispy-forms-what-are-they-about/
+  - Form Sample Class Armadillo = https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/django/contacts_forms
+  - Class Armadillo tutorial on ussing forms = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Forms.md
   - reCAPTCHA = https://developers.google.com/recaptcha/docs/versions
   - reCAPTCHA admin = https://www.google.com/recaptcha/admin/create
   
