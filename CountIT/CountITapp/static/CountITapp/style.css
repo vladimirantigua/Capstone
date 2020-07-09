@@ -31,6 +31,7 @@ li a {
     background-size: cover;
     margin: 1px 180px 40px 100px;
     margin-right: 1px;
+    z-index: -1;
 }
 
 #login_logo {
@@ -39,10 +40,27 @@ li a {
     right: 0;
 }
 
+#btn_add {
+    margin-left: 0px;
+    margin-bottom: 6px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+    margin-top: 24px;
+}
+
 #message:hover {
     font-style: italic;
     font-size: 20px;
-    background: transparent;
+    background: red;
+    border: none;
+    color: white;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+    transition: 0.5s;
+}
+
+.message:hover {
+    font-style: italic;
+    font-size: 20px;
+    background: red;
     border: none;
     color: white;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
@@ -52,7 +70,7 @@ li a {
 .message {
     font-style: italic;
     font-size: 20px;
-    background: transparent;
+    background: red;
     border: none;
     color: white;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);

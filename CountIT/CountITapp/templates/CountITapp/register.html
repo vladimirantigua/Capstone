@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,9 +27,11 @@
     <div class="message">{{message}}</div>
     {% endif %}
     </div>
-   {%if message == 'invalid_recaptcha'%}
+
+
+    {%if message == 'invalid_recaptcha'%}
     <div style="color:bisque">Invalid Recaptcha</div>
-    {% endif %} 
+    {% endif %}
     <form action="{% url 'CountITapp:register_page' %}" method="post">
         {% csrf_token %}
 
@@ -53,9 +55,11 @@
             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
             <div class="g-recaptcha" data-sitekey="6Lfwga4ZAAAAADneAUX7K_ajgPjsn2Wc-hl4TGSr"></div>
             <button type="submit" id="btn_submit">Register</button>
-            
-        </div>
 
+        </div>
+        <div class="alert alert-danger" role="alert" style="display:none" id="pw_mismatch">
+            Password do not match, please reenter it.
+        </div>
         <div class="container signin">
             <div>Already have an account? <a href="{% url 'CountITapp:login_page' %}">Signin</a></div>
         </div>
@@ -68,18 +72,18 @@
     </div> -->
 
     <!--recaptcha is used to void for people by over flowing the data base for spanning the database add the input validation frontend  -->
-
+    {% comment %} put a btn submit on the event listener {% endcomment %}
     <script type="text/javascript">
         let btn_submit = document.querySelector('#btn_submit')
         let input_password = document.querySelector('#input_password')
         let input_retype_password = document.querySelector('#input_retype_password')
-        let password_match_alert = document.querySelector('#password_match_alert')
+        let pw_mismatch = document.querySelector('#pw_mismatch')
         btn_submit.addEventListener('click', function(event) {
             // alert('!!!!')
-            if (input_password.value != input_retype_password.value) { // if the passwords entered aren't equal
-                event.preventDefault() // prevent the form submission
-                password_match_alert.style.display = ''
-                window.scrollTo(0, 0)
+            if (input_password.value != input_retype_password.value) { // if the passwords does not match 
+                event.preventDefault() // if pw not equal form will not be submitted prevent the form submission
+                pw_mismatch.style.display = '' // this will make it invisible
+                window.scrollTo(0, 0) // this will make the alert to scroll at the top of the page
             }
         })
     </script>

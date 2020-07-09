@@ -28,7 +28,11 @@
         <input type="text" name="username" placeholder="Enter your email as the Username" required />
         <input type="password" name="password" placeholder="Password" required />
         <button class="btn btn-primary"type="submit">login</button>
+       
     </form>
+    <label class="p-5">
+        <input  type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+       </label>
     <div class="form-control" id="btn-primary"  >Don't have an account? <a href="{% url 'CountITapp:register_page' %}">Register</a></div>
     <footer id="footer">
         <hr />

@@ -8,6 +8,7 @@ urlpatterns = [
     path('login/', views.login_page, name='login_page'),
     path('register/', views.register_page, name='register_page'),
     path('profile_page/', views.profile_page, name='profile_page'),
+
     # path('home/', views.home, name='home'),
     # list inventory items on 'equipment' page have search there too
     path('equipment/', views.equipment, name='equipment'),

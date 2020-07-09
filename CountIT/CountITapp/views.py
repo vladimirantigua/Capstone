@@ -324,7 +324,7 @@ def register_page(request):
         retype_password = request.POST['retype_password']
         # input validation on the backend - to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
         if password != retype_password:
-            return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
+            return render(request, 'CountITapp/register.html', {'message': 'passwords do not match PW'})
         # check if a user with that username already exists
         if User.objects.filter(username=username).exists():
             # if User.objects.filter(email=email).exists():
@@ -358,23 +358,26 @@ def profile_page(request):
     print(request.user.email)
     if request.method == 'POST':
         # do the reCAPTCHA before submitting the form
-        recaptcha_response = request.POST['g-recaptcha-response']
-        # https://developers.google.com/recaptcha/docs/verify
-        # https://www.w3schools.com/python/ref_requests_post.asp#:~:text=Python%20Requests%20post()%20Method&text=The%20post()%20method%20sends,some%20data%20to%20the%20server.
-        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
-            'secret': secrets.recaptcha_secret_key,
-            'response': recaptcha_response
+        # recaptcha_response = request.POST['g-recaptcha-response']
+        # # https://developers.google.com/recaptcha/docs/verify
+        # # https://www.w3schools.com/python/ref_requests_post.asp#:~:text=Python%20Requests%20post()%20Method&text=The%20post()%20method%20sends,some%20data%20to%20the%20server.
+        # response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
+        #     'secret': secrets.recaptcha_secret_key,
+        #     'response': recaptcha_response
 
-        })
-        recaptcha_response_data = response.json()
-        if not recaptcha_response_data['success']:
-            return render(request, 'CountITapp/register.html')
-            # to add a message for the recaptcha see how can I add message for my register page and login page message = request.GET('message','')
-            # return render(request, 'CountITapp/register.html', {'message':message})
-            # return render(request, 'CountITapp/register.html')+'?message=invalid_recaptcha'
-        # make sure to alway print the form
-        # print(request.POST)
-        # get th info out of the form
+        # })
+        # recaptcha_response_data = response.json()
+        # if not recaptcha_response_data['success']:
+        #     return render(request, 'CountITapp/register.html')
+        #     # to add a message for the recaptcha see how can I add message for my register page and login page message = request.GET('message','')
+        #     # return render(request, 'CountITapp/register.html', {'message':message})
+        #     # return render(request, 'CountITapp/register.html')+'?message=invalid_recaptcha'
+        # # make sure to alway print the form
+        # # print(request.POST)
+        # # get th info out of the form
+
+        # request.user.username = 'joe'
+        # request.user.save()
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']

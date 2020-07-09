@@ -39,8 +39,11 @@
             <label for="id_comments">Comments:</label><textarea name="comments" cols="40" rows="10" maxlength="200" class="form-control" id="id_comments"></textarea>
 
             <div class="form-group">
-                <input id="btn-primary" class="btn btn-primary" type="submit" value="Save">
+                <input id="btn_add" class="btn btn-primary" type="submit" value="Save">
             </div>
+            <a id="btn_add" href="{% url 'CountITapp:index' %}" class="btn btn-primary bottom">Go Back to the Home
+                Page</a>
+
         </form>
     </div>
 

@@ -369,3 +369,41 @@ def search(query=None):
 <!-- Add this sample form instead but customize it to fit the equipment model
 take the path and all the things from the above table since it is working for me now but save 
 it on a text file in case it does not want to renter for me take the title and the back button if the other is not cooler -->
+
+
+
+
+
+=========== using form edit profile========================
+
+#    # @login_required
+#     def edit_profile(request):
+#         if request.method == 'POST':
+#             form = EditProfileForm(request.POST, instance=request.user)
+#             if form.isvalid():
+#                 form.save()
+#                 message.success(request, ('Profile updated successfully'))
+#                 return redirect('equipment')
+#         else:
+#             form = EditProfileForm(instance=request.user)
+#         context = {
+#             form': form
+#         }
+#         return render(request, 'CountITapp/edit_profile.html', context)
+
+#     def change_password(request):
+#         if request.method == 'POST':
+#             form = PasswordChangeForm(data=request.POST, user=request.user)
+#             if form.is_valid():
+#                 form.save()
+#                 update_session_auth_hash(request, form.user)
+#                 message.success(
+#                     request, ('Your password updated successfully! '))
+#                 return redirect('login_page')
+#         else:
+#             form = PasswordChangeForm(user=request.user)
+
+#         context = {
+#             'form': form
+#         }
+#         return render(request, 'CountITapp/change_password.html', context)
