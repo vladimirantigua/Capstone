@@ -376,8 +376,14 @@ def profile_page(request):
         # # print(request.POST)
         # # get th info out of the form
 
+        # TO UPDATE THE EXISTING PROFILE do something like this below:
         # request.user.username = 'joe'
         # request.user.save()
+        # request.user.password = ''
+        # request.user.save()
+        # request.user.email = ''
+        # request.user.save()
+
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
