@@ -105,8 +105,12 @@
                 </div>
             </div>
 
-
-            <button type="submit" class="btn btn-primary">Update Inventory</button>
+{% comment %} the css for the btn primary
+#detail_page {
+    margin: 10px 180px 40px 100px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+} {% endcomment %}
+            <button id="btn-primary" type="submit" class="btn btn-primary">Update Inventory</button>
         </form>
 
         <!-- make this a link back button -->
@@ -114,7 +118,7 @@
             <!-- <form action="{% url 'CountITapp:index' %}" method="get"> -->
             {% csrf_token %}
 
-            <button type="submit" class="btn btn-primary">Go Back to Equipment Page</button>
+            <button id="btn-primary"type="submit" class="btn btn-primary">Go Back to Equipment Page</button>
 
         </form>
 

@@ -28,7 +28,7 @@
     {% endif %}
     </div>
    {% endcomment %}
-   
+
     <form action="{% url 'CountITapp:profile_page' %}" method="post">
         {% csrf_token %}
 
@@ -38,16 +38,16 @@
             <hr>
 
             <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter an Email as the Username" name="username" id="email" required>
+            <input type="text" placeholder="Enter an Email as the Username"value="{{user.username}}" name="username" id="email" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            <input type="text" placeholder="Enter Email" name="email" value="{{user.email}}"id="email" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+            <input type="password" placeholder="Enter Password" name="password"value="{{user.password}}" id="psw" required>
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="retype_password" id="psw-repeat" required>
+            <input type="password" placeholder="Repeat Password" name="retype_password" value="{{user.password}}"id="psw-repeat" required>
             <hr>
             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
             {% comment %} <div class="g-recaptcha" data-sitekey="6Lfwga4ZAAAAADneAUX7K_ajgPjsn2Wc-hl4TGSr"></div> {% endcomment %}

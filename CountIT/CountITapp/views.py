@@ -241,7 +241,7 @@ def equipment(request):
     # paginator need to be done before the context variable below if do it after it will not show
     # create a variable and bring the model from line 6 Paginator
     # this will print 20 IT ITEMS per page
-    #paginator = Paginator(inventory_items, 15)
+    # paginator = Paginator(inventory_items, 15)
     # this is saying for every 15 IT_EQUIPMENT I need to create a new page
     # inventory_items = paginator.page(page)
 
@@ -351,9 +351,11 @@ def logout_user(request):
 # profile page:
 
 
-# @login_required
+@login_required
 def profile_page(request):
 
+    print(request.user)
+    print(request.user.email)
     if request.method == 'POST':
         # do the reCAPTCHA before submitting the form
         recaptcha_response = request.POST['g-recaptcha-response']
@@ -393,4 +395,7 @@ def profile_page(request):
         # redirect to the homepage:
         return HttpResponseRedirect(reverse('CountITapp:equipment'))
     print(request.POST)
-    return render(request, 'CountITapp/profile_page.html', {})
+    context = {
+        'user': request.user
+    }
+    return render(request, 'CountITapp/profile_page.html')

@@ -100,6 +100,22 @@ body {
 }
 
 #btn-primary {
+    /* margin: 10px 180px 40px 100px; */
+    margin-left: 22px;
+    margin-bottom: 25px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+}
+
+#back {
+    z-index: 1;
+    margin-top: 30px;
+    /* margin: 10px 180px 40px 100px; */
+    margin-left: 95px;
+    /* margin-bottom: 25px; */
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+}
+
+#detail_page {
     margin: 10px 180px 40px 100px;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
 }
@@ -109,7 +125,12 @@ body {
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
 }
 
+.bottom {
+    margin-bottom: 80px;
+}
+
 #footer {
+    z-index: -1;
     position: fixed;
     left: 0;
     bottom: 0;
