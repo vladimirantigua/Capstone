@@ -1,44 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'CountITapp/base.html' %} 
+{% load static %} 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-    <title>IT Equipment Page</title>
+{% block content %}
 
-    <style>
-        #back {
-            margin-left: 96px;
-        }
-        /* .table {
-            margin-left: 5px;
-        } */
-        
-        .number {
-            margin-left: 96px;
-        }
-        
-        .container {
-            margin-left: 96px;
-        }
-    </style>
-</head>
-<!-- make this login require -->
-
-<body>
-    <h1>Equipment Page</h1>
-    <div id="home_logo" class="col-sm-6 banner-image">
-        <img src="{% static 'CountITapp/images/background_inventory15.png' %}" class="img-responsive">
+    <div id="equipment_title">
+        <h1>Equipment Page</h1>
     </div>
+
     <!-- to add a message after the user have logged in use the Welcome message Welcome to "CountIT", {{user.username}} -->
-    <div id="welcome_home">
-        <h3>Welcome to "CountIT", {{user.username}}</h3>
-        <a href="{% url 'CountITapp:logout_user' %}">logout</a>
-
-    </div>
+    
     <div class="p-5" class="container">
         <h2 style="color:blue;"><i>IT Inventory Equipment Page:</i></h2>
         <!-- add a search button at the top -->
@@ -69,7 +39,7 @@
             </div>
 
             <table class="table">
-                <thead style="color:white" ;>
+                <thead>
                     <tr>
 
                         <th>Equipment Name</th>
@@ -82,18 +52,17 @@
 
                     </tr>
                 </thead>
-                <tbody style="color:white" ;>
+                <tbody>
                     {% for item in items %}
 
-                    <tr>
-                        <tr class="number"></tr>
+                    <tr {% if item.quantity == 0 %} style="background-color: red;" {% endif %}>
                         <td>{{ item.equipment_name }}</td>
                         <td>{{ item.equipment_model }}</td>
                         <td>{{ item.asset_tag }}</td>
                         <td>{{ item.service_tag }}</td>
                         <td>{{ item.purchase_date }}</td>
                         <td>{{ item.expiration_date }}</td>
-                        <td>{{ item.quantity }}</t>
+                        <td>{{ item.quantity }}</td>
                             <!-- <td><img src="{{laptop.image_front}}"></td>-->
 
                     </tr>
@@ -117,9 +86,4 @@
     } -->
     <a id="back" href="{% url 'CountITapp:index' %}" class="btn btn-primary bottom">Go Back to the Home Page</a>
 
-    <div id="footer">
-        <p>Created by: Vladimir Antigua 10 Jul 2020</p>
-    </div>
-</body>
-
-</html>
+{% endblock %}

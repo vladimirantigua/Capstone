@@ -376,18 +376,16 @@ def profile_page(request):
         # # print(request.POST)
         # # get th info out of the form
 
-        # TO UPDATE THE EXISTING PROFILE do something like this below:
-        # request.user.username = 'joe'
-        # request.user.save()
-        # request.user.password = ''
-        # request.user.save()
-        # request.user.email = ''
-        # request.user.save()
-
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         retype_password = request.POST['retype_password']
+        # TO UPDATE THE EXISTING PROFILE do something like this below:
+        # user = request.user
+        # user.username = 'joe'
+        # user.set_password('')
+        # user.email = ''
+        # user.save()
         # input validation on the backend - to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
         if password != retype_password:
             return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
@@ -408,3 +406,34 @@ def profile_page(request):
         'user': request.user
     }
     return render(request, 'CountITapp/profile_page.html')
+
+
+# to send email report using Python:
+# https://stackoverflow.com/questions/52022134/how-do-i-schedule-an-email-to-send-at-a-certain-time-using-cron-and-smtp-in-pyt
+# import datetime as dt
+# import time
+# import smtplib
+
+# def send_email():
+#     email_user = 'myemail@gmail.com'
+#     server = smtplib.SMTP ('smtp.gmail.com', 587)
+#     server.starttls()
+#     server.login(email_user, 'email pass')
+
+#     #EMAIL
+#     message = 'sending this from python!'
+#     server.sendmail(email_user, email_user, message)
+#     server.quit()
+
+# def send_email_at(send_time):
+#     time.sleep(send_time.timestamp() - time.time())
+#     send_email()
+#     print('email sent')
+
+# first_email_time = dt.datetime(2018,8,26,3,0,0) # set your sending time in UTC
+# interval = dt.timedelta(minutes=2*60) # set the interval for sending the email
+
+# send_time = first_email_time
+# while True:
+#     send_email_at(send_time)
+#     send_time = send_time + interval
