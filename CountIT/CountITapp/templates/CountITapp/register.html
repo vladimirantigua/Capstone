@@ -1,28 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'CountITapp/base.html' %} 
+{% load static %} 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <title>Register Page</title>
-    <style>
+{% block content %}
 
-    </style>
-</head>
 
-<body>
     <!-- recaptcha -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 
-    <div id="register_logo" class="col-sm-6 banner-image"> -->
-    <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
-    </div>
-    <!-- <h1>Register Page</h1> -->
+
+    
     {% if message %}
     <div class="message">{{message}}</div>
     {% endif %}
@@ -64,14 +50,8 @@
             <div>Already have an account? <a href="{% url 'CountITapp:login_page' %}">Signin</a></div>
         </div>
     </form>
-    <!-- Figure out how to make the footer not to interrupt with the signin button when 
-        the footer is commented the signing button works 
-        but signing does not work or I am unable to click it to go to the login page -->
-    <!-- <div id="footer">
-        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
-    </div> -->
 
-    <!--recaptcha is used to void for people by over flowing the data base for spanning the database add the input validation frontend  -->
+    {% comment %} recaptcha is used to void for people by over flowing the data base for spanning the database add the input validation frontend  --> {% endcomment %}
     {% comment %} put a btn submit on the event listener {% endcomment %}
     <script type="text/javascript">
         let btn_submit = document.querySelector('#btn_submit')
@@ -87,9 +67,8 @@
             }
         })
     </script>
-</body>
-
-</html>
-
 <!-- w3 shool form
 https://www.w3schools.com/howto/howto_css_register_form.asp -->
+
+
+{% endblock %}

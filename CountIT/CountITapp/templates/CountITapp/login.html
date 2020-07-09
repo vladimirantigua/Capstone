@@ -2,12 +2,12 @@
 {% load static %} 
 
 {% block content %}
-<h1>Welcome to CountIT!</h1>
+<h1 id="welcome_login">Welcome to CountIT!</h1>
     <div id="login_logo" class="col-sm-6 banner-image">
         <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
     </div>
 
-    <h1>Login</h1>
+    <h1 id="welcome_login">Login</h1>
     {% if message %}
     <!-- the id="message" is not changing the color of the message I applied on the style.css find out why -->
     <div id="message">{{message}}</div>
@@ -22,7 +22,7 @@
     <label class="p-5">
         <input  type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
        </label>
-    <div class="form-control" id="btn-primary"  >Don't have an account? <a href="{% url 'CountITapp:register_page' %}">Register</a></div>
+    <div class="form-control" id="regi_footer"  >Don't have an account? <a href="{% url 'CountITapp:register_page' %}">Register</a></div>
 {% endblock %}
 
 

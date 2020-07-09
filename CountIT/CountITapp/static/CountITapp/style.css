@@ -40,6 +40,13 @@ li a {
     right: 0;
 }
 
+#welcome_login {
+    margin-left: 50px;
+    /* margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2; */
+}
+
 #equipment_title {
     font-style: italic;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
@@ -60,6 +67,12 @@ li a {
     color: white;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
     transition: 0.5s;
+}
+
+#regi_footer {
+    margin-left: -1px;
+    margin-bottom: 25px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
 }
 
 .message:hover {
