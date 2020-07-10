@@ -1,32 +1,8 @@
-{% load static %} {% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>IT Item Detail</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-
-    <style>
-        #back {
-            margin-left: 96px;
-        }
-        
-        .table {
-            margin-left: 96px;
-        }
-        
-        .number {
-            margin-left: 96px;
-        }
-        
-        .container {
-            margin-left: 96px;
-        }
-    </style>
-</head>
+{% extends 'CountITapp/base.html' %} 
+{% load static %}
+ {% comment %} to add the title in each of the child templates  user the block title below  {% endcomment %}
+{% block title %} Edit Equipment {% endblock %}
+{% block content %}
 
 <body>
     <!-- <div> -->
@@ -34,14 +10,14 @@
     <!-- <div id="logo" class="col-sm-6 banner-image"> -->
     <!-- <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive"> -->
     <!-- </div> -->
-    <div class="container">
+    <div class="">
         <h2 style="color:blue;"><i> Edit IT Inventory Page:</i></h2>
 
         
         <form class="p-5"action="{% url 'CountITapp:edit_equipment' item.id %}" method="post">
             {% csrf_token %}
             {% comment %} just by taking the word container out of the div <div class="container"> it helped to allign the form correctly  {% endcomment %}
-            <div class="">
+            <div class="container">
                 {% comment %} <h2> Edit Detail Page</h2> {% endcomment %}
                 <div class="form-group">
                     <label for="equiname"> Equipment Name:</label>
@@ -99,10 +75,4 @@
         </form>
     </div>
 
-    <!-- <footer id="footer">
-        <hr />
-        <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
-    </footer> -->
-</body>
-
-</html>
+{% endblock %}

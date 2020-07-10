@@ -1,46 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>IT Item Detail</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-
-    <style>
-        /* #back {
-            margin-left: 96px;
-        }
-        
-        .table {
-            margin-left: 96px;
-        }
-        
-        .number {
-            margin-left: 96px;
-        }
-        
-        .container {
-            margin-left: 96px;
-        } */
-    </style>
-</head>
-
-<body>
-
-    {% comment %}
-    <!-- enable the logo later -->
-    <!-- <div id="logo" class="col-sm-6 banner-image"> -->
-    <!-- <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive"> --> {% endcomment %}
-    </div>
+{% extends 'CountITapp/base.html' %} 
+{% load static %} 
+{% block title %} Detail Page {% endblock %}
+{% block content %}
     <div class="container">
         <h2 style="color:blue;"><i>IT Inventory Detail Page:</i></h2>
         {% comment %} GET method is needed here to be able to redirect to the edit equipment view having a post will crash the page having Get will allow this line in the view.py under the edit_equipment view context = {
         'item': inventory then it will to the edit equipment template so the item can be updated:  return return render(request, 'CountITapp/edit_equipment.html', context)
-    } {% endcomment %}
+        } {% endcomment %}
         <form class="p-1" action="{% url 'CountITapp:edit_equipment' item.id %}" method="get">
             {% csrf_token %}
 
@@ -105,11 +71,7 @@
                 </div>
             </div>
 
-{% comment %} the css for the btn primary
-#detail_page {
-    margin: 10px 180px 40px 100px;
-    box-shadow: 7px 7px 12px rgb(235, 6, 6);
-} {% endcomment %}
+
             <button id="btn-primary" type="submit" class="btn btn-primary">Update Inventory</button>
         </form>
 
@@ -123,15 +85,7 @@
         </form>
 
     </div>
-    <!-- add the footer later because in blocking the back button  -->
-    <!-- <footer id="footer">
-        <hr />
-        <span>&copy; Created by: Vladimir Antigua 30 Jun 2020 </span>
-    </footer> 
-
-</body>
-
-</html>
+ {% endblock %}
 
 
 

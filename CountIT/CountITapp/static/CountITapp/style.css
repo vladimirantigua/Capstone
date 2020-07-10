@@ -40,6 +40,14 @@ li a {
     right: 0;
 }
 
+#login_btn {
+    margin-top: 28px;
+}
+
+#checkbox_login {
+    margin-top: -57px;
+}
+
 #welcome_login {
     margin-left: 50px;
     /* margin-bottom: 0.5rem;
@@ -59,7 +67,7 @@ li a {
     margin-top: 24px;
 }
 
-#message:hover {
+#message {
     font-style: italic;
     font-size: 20px;
     background: red;
@@ -67,6 +75,7 @@ li a {
     color: white;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
     transition: 0.5s;
+    margin-left: 52px;
 }
 
 #regi_footer {
@@ -74,6 +83,11 @@ li a {
     margin-bottom: 25px;
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
 }
+
+
+/* #footer_name {
+    margin-left: 406px;
+} */
 
 .message:hover {
     font-style: italic;
@@ -137,9 +151,9 @@ main {
 }
 
 #font_fun {
-    font-size: medium;
-    color: white;
-    margin: 310px 180px 40px 100px;
+    font-size: small;
+    color: black;
+    margin: 10px 180px 40px 100px;
     /* box-shadow: 7px 7px 12px rgb(235, 6, 6); */
 }
 
@@ -154,7 +168,7 @@ main {
     z-index: 1;
     margin-top: 30px;
     /* margin: 10px 180px 40px 100px; */
-    margin-left: 95px;
+    margin-left: 29px;
     /* margin-bottom: 25px; */
     box-shadow: 7px 7px 12px rgb(235, 6, 6);
 }

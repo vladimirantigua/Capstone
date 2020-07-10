@@ -18,6 +18,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+          <!-- recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
+
 </head>
 
 <body>
@@ -85,9 +88,9 @@
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <span class="text-muted">&copy; Created by Vladimir Antigua Jul 2020</span>
+    <footer id="footer_name" class="footer mt-auto py-3">
+        <div  class="container">
+            <span  class="text-muted">&copy; Created by Vladimir Antigua Jul 2020</span>
         </div>
     </footer>
 </body>

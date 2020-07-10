@@ -265,7 +265,7 @@ def equipment(request):
                 # icontain will eliminate any capitalization
                 | Q(expiration_date__icontains=query)
                 | Q(quantity__icontains=query))
-            context['query'] = items
+            context['items'] = items
             print(items)
     return render(request, 'CountITapp/equipment.html', context)
 
@@ -274,6 +274,18 @@ def equipment(request):
 
 def login_page(request):
     if request.method == 'POST':
+        # do the reCAPTCHA before submitting the form
+        recaptcha_response = request.POST['g-recaptcha-response']
+        # https://developers.google.com/recaptcha/docs/verify
+        # https://www.w3schools.com/python/ref_requests_post.asp#:~:text=Python%20Requests%20post()%20Method&text=The%20post()%20method%20sends,some%20data%20to%20the%20server.
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
+            'secret': secrets.recaptcha_secret_key,
+            'response': recaptcha_response
+
+        })
+        recaptcha_response_data = response.json()
+        if not recaptcha_response_data['success']:
+            return render(request, 'CountITapp/login.html')
         # make sure to alway print the form
         # print(request.POST)
         # to get the Username and Pw out of the form
@@ -283,7 +295,7 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         # username and password do not match, go back to the page and didplay this message: {'message': 'Wrong User name and Password there is no user with this username and password. Please enter a valid Username and Password or click register to create an account'})
         if user is None:
-            return render(request, 'CountITapp/login.html', {'message': 'Wrong Username and Password there is no user with this username and password. Please enter a valid Username and Password or click register to create an account'})
+            return render(request, 'CountITapp/login.html', {'message': 'Wrong Username and Password not account found with this username and password. Please enter a valid Username and Password or click register to create an account'})
         # login(request, user) means if the user has been created then the user will be able to login and be redirected to the home page
         login(request, user)
         # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
@@ -379,24 +391,47 @@ def profile_page(request):
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
-        retype_password = request.POST['retype_password']
-        # TO UPDATE THE EXISTING PROFILE do something like this below:
-        # user = request.user
-        # user.username = 'joe'
-        # user.set_password('')
-        # user.email = ''
-        # user.save()
-        # input validation on the backend - to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
+        # retype_password = request.POST['retype_password']
+
+        # do this step before changing the user information
         if password != retype_password:
             return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
         # check if a user with that username already exists
         if User.objects.filter(username=username).exists():
             # if User.objects.filter(email=email).exists():
             return render(request, 'CountITapp/register.html', {'message': 'Please use a different username the username you entered already exists'})
+
+        # ==============Below I can use the Authenticate to allow the
+        # ========user to change their email and Username
+        # ---- issue with the current pw the hash if user change username and pw and hit edit profile the the password will be changed with the hash they do not know.
+        # ---- another pw issue if I leave the pw field in the template without value then the user might not enter the new pw and only update the username and email and if click  edit them it will submit pw as an empty string and that is a security issue because the user will be able to login without pw just using the username
+
+        # if the user has been created the and the username and pw match you will be able to login:
+        user = authenticate(request, username=username, password=password)
+        # username and password do not match, go back to the page and didplay this message: {'message': 'Wrong User name and Password there is no user with this username and password. Please enter a valid Username and Password or click register to create an account'})
+        if user is None:
+            return render(request, 'CountITapp/login.html', {'message': 'Wrong Username and Password not account found with this username and password. Please enter a valid Username and Password or click register to create an account'})
+        # login(request, user) means if the user has been created then the user will be able to login and be redirected to the home page
+        login(request, user)
+        # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
+        if 'next' in request.GET:
+            # redirect to next in this case is the login page
+            return HttpResponseRedirect(request.GET['next'])
+        return HttpResponseRedirect(reverse('CountITapp:equipment'))
+
+        # TO UPDATE THE EXISTING PROFILE do something like this below:
+        user = request.user
+        user.username = username
+        user.set_password(password)
+        user.email = email
+        user.save()
+        # password isssue either put to create a change password
+        # input validation on the backend - to check if the passwords are the same and to add a message such as: 'passwords do not match' when user register for an account do the following:
+
         # create the user, log them in, and redirect to the home page
         # this will create all the hashing and create the user -- user = User.objects.create_user(username, email, password)
         # if we want to utilize email as the username do it the format below by passing the username as the email (email, email, password)
-        user = User.objects.create_user(username, email, password)
+        # user = User.objects.create_user(username, email, password)
         login(request, user)
         # return HttpResponseRedirect(reverse('CountITapp:register'))
         # redirect to the homepage:

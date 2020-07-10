@@ -1,62 +1,79 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'CountITapp/base.html' %} 
+{% load static %} 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'CountITapp/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>"Added Equipment"</title>
-    <style>
+{% block content %}
 
-    </style>
-</head>
+<div id="font_fun">
+    <h2 style="color:blue;"><i> Add IT Inventory Page:</i></h2>
+    <form action="{% url 'CountITapp:add_equipment_post' %}" method="POST">
+        {% csrf_token %}
+        {% comment %} just by taking the word container out of the div <div class="container"> it helped to allign the
+            form
+            correctly {% endcomment %}
+            <div class="">
 
-<body>
+                <div class="form-group">
+                    <label for="equiname"> Equipment Name:</label>
+                    <input type="text" class="form-control" id="equipment_name" name="equipment_name" required />
+                    <!-- We do not need a placeholder here because the form is already created and this is -->
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="equimodel">Equipment Model:</label>
+                    <input type="text" class="form-control" id="equimodel" name="equipment_model" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="atag">Asset Tag</label>
+                    <input type="text" class="form-control" id="atag" name="asset_tag" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="stag">Service Tag</label>
+                    <input type="text" class="form-control" id="stag" name="service_tag" required />
+                    <!-- <div> {{ item.service_tag }}</div> -->
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="pdate">Purchase Date</label>
+                    <input type="date" class="form-control" id="pdate" name="purchase_date" required />
+                    <!-- <div> {{ item.purchase_date}}</div> -->
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="edate">Expiration Date</label>
+                    <input type="date" class="form-control" id="edate" name="expiration_date" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="qty">Quantity</label>
+                    <input type="text" class="form-control" id="qty" name="quantity" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
 
-    <div id="logo" class="col-sm-6 banner-image">
-        <img src="{% static 'CountITapp/images/Logo_CountITapp.png' %}" class="img-responsive">
-    </div>
-    <div id="font_fun">
-        <h2 style="color:blue;"><i> Add IT Inventory Page:</i></h2>
-        <form action="{% url 'CountITapp:add_equipment_post' %}" method="POST">
-            {% csrf_token %}
-            <label for="id_equipment_name">Equipment name:</label>
-            <input class="form-control" type="text" name="equipment_name" maxlength="75" id="Equiname" required>
-            <label for="id_equipment_model">Equipment model:</label>
-            <input class="form-control" type="text" name="equipment_model" maxlength="30" id="equimodel" required>
-            <label for="id_asset_tag">Asset tag:</label>
-            <input class="form-control" type="text" name="asset_tag" maxlength="20" id="id_asset_tag" required>
-            <label for="id_service_tag">Service tag:</label>
-            <input class="form-control" type="text" name="service_tag" maxlength="30" id="id_service_tag" required>
-            <label for="id_purchase_date">Purchase date:</label>
-            <input class="form-control" type="date" name="purchase_date" id="id_purchase_date" required>
-            <label for="id_expiration_date">Expiration date:</label>
-            <input class="form-control" type="date" name="expiration_date" id="id_expiration_date" required>
-            <label for="id_quantity">Quantity:</label>
-            <input class="form-control" type="number" name="quantity" value="0" id="id_quantity">
-            <label for="id_comments">Comments:</label><textarea name="comments" cols="40" rows="10" maxlength="200" class="form-control" id="id_comments"></textarea>
+                <div class="form-group">
+                    <label for="comments">Comments:</label>
+                    <textarea class="form-control" id="comm" name="comments"> </textarea>
+                </div>
+            </div>
 
             <div class="form-group">
                 <input id="btn_add" class="btn btn-primary" type="submit" value="Save">
             </div>
             <a id="btn_add" href="{% url 'CountITapp:index' %}" class="btn btn-primary bottom">Go Back to the Home
                 Page</a>
-
-        </form>
-    </div>
-
-    <!-- add add function to view.py -->
-    <!-- add a form to add IT items -->
-    <!-- add a search button -->
-    <!-- add a back button to the home page -->
-
-    <div id="footer">
-        <p>Created by: Vladimir Antigua 30 Jun 2020</p>
-    </div>
-
-</body>
+    </form>
+</div>
 
 
-</html>
+
+
+
+{% endblock %}

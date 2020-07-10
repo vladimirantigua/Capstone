@@ -1,6 +1,6 @@
 {% extends 'CountITapp/base.html' %} 
 {% load static %} 
-
+{% block title %} Equipment Page {% endblock %}
 {% block content %}
 
     <div id="equipment_title">
@@ -32,8 +32,8 @@
                 <div>
 
                     <!-- <img src="{{inventory.image_front}}"> -->
-
                     <a href="{% url 'CountITapp:detail' inventory.id %}"> {{inventory.equipment_name}}</a>
+
                 </div>
                 {% endfor %}
             </div>
@@ -55,8 +55,11 @@
                 <tbody>
                     {% for item in items %}
 
-                    <tr {% if item.quantity == 0 %} style="background-color: red;" {% endif %}>
-                        <td>{{ item.equipment_name }}</td>
+                    <tr {% if item.quantity == 0 %} style="background-color: red;" {% endif %}
+                    {% if item.quantity <= 30 %} style="background-color: yellow;" {% endif %}
+                    {% if item.quantity >= 50 %} style="background-color: green;" {% endif %}>
+                    
+                        <td><a href="{% url 'CountITapp:detail' item.id %}"> {{item.equipment_name}}</a></td>
                         <td>{{ item.equipment_model }}</td>
                         <td>{{ item.asset_tag }}</td>
                         <td>{{ item.service_tag }}</td>

@@ -1,6 +1,6 @@
 {% extends 'CountITapp/base.html' %} 
 {% load static %} 
-
+{% block title %} Login Page {% endblock %}
 {% block content %}
 <h1 id="welcome_login">Welcome to CountIT!</h1>
     <div id="login_logo" class="col-sm-6 banner-image">
@@ -12,17 +12,50 @@
     <!-- the id="message" is not changing the color of the message I applied on the style.css find out why -->
     <div id="message">{{message}}</div>
     {% endif %}
+
+
+     
+    {% comment %} {% if message %}
+    <div class="message">{{message}}</div>
+    {% endif %}
+    </div> {% endcomment %}
+
+
+    {%if message == 'invalid_recaptcha'%}
+    <div style="color:bisque">Invalid Recaptcha</div>
+    {% endif %}
     <form class="p-5" action="{% url 'CountITapp:login_page' %}" method="post">
         {% csrf_token %}
         <input type="text" name="username" placeholder="Enter your email as the Username" required />
         <input type="password" name="password" placeholder="Password" required />
-        <button class="btn btn-primary"type="submit">login</button>
+        <div class="g-recaptcha" data-sitekey="6Lfwga4ZAAAAADneAUX7K_ajgPjsn2Wc-hl4TGSr"></div>
+        <button id="login_btn"class="btn btn-primary"type="submit">login</button>
+
+        
+           
        
     </form>
-    <label class="p-5">
+    <label id="checkbox_login" class="p-5">
         <input  type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
        </label>
     <div class="form-control" id="regi_footer"  >Don't have an account? <a href="{% url 'CountITapp:register_page' %}">Register</a></div>
+
+    {% comment %} recaptcha is used to void for people by over flowing the data base for spanning the database add the input validation frontend  --> {% endcomment %}
+    {% comment %} put a btn submit on the event listener {% endcomment %}
+    <script type="text/javascript">
+        let btn_submit = document.querySelector('#btn_submit')
+        let input_password = document.querySelector('#input_password')
+        let input_retype_password = document.querySelector('#input_retype_password')
+        let pw_mismatch = document.querySelector('#pw_mismatch')
+        btn_submit.addEventListener('click', function(event) {
+            // alert('!!!!')
+            if (input_password.value != input_retype_password.value) { // if the passwords does not match 
+                event.preventDefault() // if pw not equal form will not be submitted prevent the form submission
+                pw_mismatch.style.display = '' // this will make it invisible
+                window.scrollTo(0, 0) // this will make the alert to scroll at the top of the page
+            }
+        })
+    </script>
 {% endblock %}
 
 
