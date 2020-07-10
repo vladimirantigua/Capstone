@@ -236,7 +236,7 @@ def equipment(request):
         # paginator need to be done before the context variable below if do it after it will not show
         # create a variable and bring the model from line 6 Paginator
         # this will print 3 IT items  per page
-        paginator = Paginator(inventory_items, 10)
+        paginator = Paginator(inventory_items, 6)
         # this is saying for every 3 items I need to create a new page
         inventory_items = paginator.page(page)
         context = {
@@ -275,6 +275,9 @@ def equipment(request):
                 # icontain will eliminate any capitalization
                 | Q(expiration_date__icontains=query)
                 | Q(quantity__icontains=query))
+            # SEARCH RESULTS BY QUANTITY - only was re
+            items = items.order_by('quantity')
+            # items = Inventory.objects.filter(...).ordery_by(...)
             # page = request.POST.get('page', 1)
             # paginator = Paginator(items, 2)
             # # this is saying for every 3 items I need to create a new page
