@@ -88,5 +88,15 @@
         margin-bottom: 80px;
     } -->
     <a id="back" href="{% url 'CountITapp:index' %}" class="btn btn-primary bottom">Go Back to the Home Page</a>
+    <!-- Pagination on the div below =  https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html-->
+
+     <div class="pagi">
+        {% if items.has_previous %}
+        <a id="pagi_num"class="btn btn-first" href="?page={{items.previous_page_number}}">&laquo;</a> {% endif %}
+     
+        <span id="paginum">{{items.number}}</span> {% if items.has_next %}
+        <a id="pagi_num" class="btn btn-second" href="?page={{items.next_page_number}}">&raquo;</a> {% endif %}
+
+    </div>
 
 {% endblock %}

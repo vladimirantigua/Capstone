@@ -227,11 +227,21 @@ def equipment(request):
     if request.user.is_authenticated == False:
         # redirecting to the login page:
         return render(request, 'CountITapp/login.html')
-    # inventory_items = Inventory.objects.all()
-    inventory_items = Inventory.objects.order_by('quantity')
-    context = {
-        'items': inventory_items
-    }
+    if request.method == 'GET':
+        inventory_items = Inventory.objects.order_by('quantity')
+        # page is one of the string objects and 1 is the page the page starts this is what is going to be display at the button of my page
+        page = request.GET.get('page', 1)
+        # inventory_items = Inventory.objects.all()
+
+        # paginator need to be done before the context variable below if do it after it will not show
+        # create a variable and bring the model from line 6 Paginator
+        # this will print 3 IT items  per page
+        paginator = Paginator(inventory_items, 10)
+        # this is saying for every 3 items I need to create a new page
+        inventory_items = paginator.page(page)
+        context = {
+            'items': inventory_items
+        }
     # inventory_items = request.user.inventory_items.order_by('quantity')
 
     # Make a request to the page with GET because we are getting the page instead of post from the browser this is why is it is capital GET
@@ -265,8 +275,15 @@ def equipment(request):
                 # icontain will eliminate any capitalization
                 | Q(expiration_date__icontains=query)
                 | Q(quantity__icontains=query))
-            context['items'] = items
+            # page = request.POST.get('page', 1)
+            # paginator = Paginator(items, 2)
+            # # this is saying for every 3 items I need to create a new page
+            # items = paginator.page(page)
+            context = {
+                'items': items
+            }
             print(items)
+    # use paginator here
     return render(request, 'CountITapp/equipment.html', context)
 
 # login page view
@@ -390,16 +407,16 @@ def profile_page(request):
 
         username = request.POST['username']
         email = request.POST['email']
-        password = request.POST['password']
+        # password = request.POST['password']
         # retype_password = request.POST['retype_password']
 
         # do this step before changing the user information
-        if password != retype_password:
-            return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
+        # if password != retype_password:
+        #     return render(request, 'CountITapp/register.html', {'message': 'passwords do not match'})
         # check if a user with that username already exists
-        if User.objects.filter(username=username).exists():
-            # if User.objects.filter(email=email).exists():
-            return render(request, 'CountITapp/register.html', {'message': 'Please use a different username the username you entered already exists'})
+        # if User.objects.filter(username=username).exists():
+        #     # if User.objects.filter(email=email).exists():
+        #     return render(request, 'CountITapp/register.html', {'message': 'Please use a different username the username you entered already exists'})
 
         # ==============Below I can use the Authenticate to allow the
         # ========user to change their email and Username
@@ -407,22 +424,23 @@ def profile_page(request):
         # ---- another pw issue if I leave the pw field in the template without value then the user might not enter the new pw and only update the username and email and if click  edit them it will submit pw as an empty string and that is a security issue because the user will be able to login without pw just using the username
 
         # if the user has been created the and the username and pw match you will be able to login:
-        user = authenticate(request, username=username, password=password)
+        # user = authenticate(request, password=password)
+        # print(user)
+        # print(password)
         # username and password do not match, go back to the page and didplay this message: {'message': 'Wrong User name and Password there is no user with this username and password. Please enter a valid Username and Password or click register to create an account'})
-        if user is None:
-            return render(request, 'CountITapp/login.html', {'message': 'Wrong Username and Password not account found with this username and password. Please enter a valid Username and Password or click register to create an account'})
-        # login(request, user) means if the user has been created then the user will be able to login and be redirected to the home page
-        login(request, user)
-        # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
-        if 'next' in request.GET:
-            # redirect to next in this case is the login page
-            return HttpResponseRedirect(request.GET['next'])
-        return HttpResponseRedirect(reverse('CountITapp:equipment'))
+        # if user is None:
+        #     return render(request, 'CountITapp/login.html', {'message': 'Wrong Username and Password not account found with this username and password. Please enter a valid Username and Password or click register to create an account'})
+        # # login(request, user) means if the user has been created then the user will be able to login and be redirected to the home page
+        # login(request, user)
+        # # if there's a next parameter in the url e.g. localhost:8000/CountITapp/login/?next=/CountITapp/home/
+        # if 'next' in request.GET:
+        #     # redirect to next in this case is the login page
+        #     return HttpResponseRedirect(request.GET['next'])
 
         # TO UPDATE THE EXISTING PROFILE do something like this below:
         user = request.user
         user.username = username
-        user.set_password(password)
+        # user.set_password(password)
         user.email = email
         user.save()
         # password isssue either put to create a change password

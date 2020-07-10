@@ -26,9 +26,10 @@
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" value="{{user.email}}"id="email" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password"  name="password" id="psw" required>
-
+            {% comment %} <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password"  name="password" id="psw" required> {% endcomment %}
+            {% comment %} <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="retype_password" id="psw-repeat" required>  {% endcomment %}
             {% comment %} <label for="psw-repeat"><b>Repeat Password</b></label>
             <input type="password" placeholder="Repeat Password" name="retype_password" value="{{user.password}}" id="psw-repeat" required> {% endcomment %}
             <hr>
