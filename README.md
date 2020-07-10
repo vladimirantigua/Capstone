@@ -12,24 +12,24 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
 
 # Functionality
 
-  - [ ] page list all the inventory items 
-  - [ ] page create inventory items
-  - [ ] page edit/update inventory items
-  - [ ] delete all the create all the inventory items
-  - [ ] retrieve /search inventory items
+  - [X] page list all the inventory items 
+  - [X] page create inventory items
+  - [X] page edit/update inventory items
+ 
+  - [X] retrieve /search inventory items
 
   ### Report Page color coded add a message if item is low or out of stoke
-  - [ ] Create a page that have the following functionalities:
-   - [ ] page that will have all the items listed in the following order: IT items with the lower quantity at the top
-     - [ ] add color code to the items quantity: RED = if item is has 0 quantity. YELLOW = if item has quantity of 40. GREEN = item quantity above 50
-   - [ ] Create a report list of items that need to ordered
-   - [ ] Create a report of the whole inventory to share with accounting and other managers 
-     - [ ] setup an email notification send to the IT manager and IT admin responsible for the inventory management about daily inventory levels
-     - [ ] have a message on the profile page or the user homepage with a notification
+  - [X] Create a page that have the following functionalities:
+   - [X] page that will have all the items listed in the following order: IT items with the lower quantity at            the top
+     - [X] add color code to the items quantity: RED = if item is has 0 quantity. YELLOW = if item has quantity           of 40. GREEN = item quantity above 50
+   - [ ] Create a report of the whole inventory to share with accounting and other managers (AFTER CLASS WILL BE          ADDED)
+     - [ ] setup an email notification send to the IT manager and IT admin responsible for the inventory        
+           management about daily inventory levels. (AFTER CLASS WILL BE ADDED)
+     - [ ] have a message on the profile page or the user homepage with a notification (AFTER CLASS WILL BE                 ADDED)
  
   ### Login
-  - [ ] add a login with username (email) and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
-    - [ ] Matthew suggest look the user management sytems he demo in class to use as an example to build my user management systems for my Capstone
+  - [X] add a login with username and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
+    - [X] Matthew suggest look the user management sytems he demo in class to use as an example to build my user management systems for my Capstone
    
 
 # Data Models
@@ -45,31 +45,27 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
         - [x] quantity
         - [ ] comment field text area to add comment for IT equipment
        ## user
-         - [ ] login(email or username)
-         - [ ] password
-         - [ ] registration page
-         - [ ] user profile page
-           - [ ] Matthew suggest to use the Django Built in User System
-         - [ ]  add reCHAPTCHA to the registration form and login page
+         - [X] login(email or username)
+         - [X] password
+         - [X] registration page
+         - [X] user profile page - edit profile IT users can change their username, password or email
+           - [X] Matthew suggest to use the Django Built in User System
+         - [X]  add reCHAPTCHA to the registration form and login page
            
-
-# Forms
-
-  - [ ] create forms 
 
 
 # Template
-  - [ ] Homepage will be leasting all the inventory
-     - [ ] Login Page for the - IT staff will be login in to help manage the inventory
-     - [ ] Registration page for the - IT staff to register to create an account to access the inventory management
-     - [ ] User profile page in case the - IT staff would like to update their inventory management registration account
-     - [ ] page list all the inventory items 
-     - [ ] Home or Index page user will be able to see after login
-     - [ ] Index Page see if I will be better to combine the Home and Index Page or it is better to keep it separate
-     - [ ] Detail page list individual item see if I can add a photo for each of the laptop models
-     - [ ] Add Equipment to create and submit new equipment manually 
-     - [ ] search / retrieve button to search for a particular inventory item
-          - [ ] think about the user experience and what the IT staff see when they visit the inventory management page
+  - [X] Homepage will be leasting all the inventory
+     - [X] Login Page for the - IT staff will be login in to help manage the inventory
+     - [X] Registration page for the - IT staff to register to create an account to access the inventory management
+     - [X] User profile page in case the - IT staff would like to update their inventory management registration account
+     - [X] Home page will be the main Equipment Page list all the inventory items 
+     - [X] Index page user will be able to see selete an option to login or register
+     - [X] Detail page list individual item from Detail Page I am able to update that item. see if I can add a              photo for each of the laptop models to show on the detail page
+     - [X] Add Equipment to create and submit new equipment manually 
+     - [X] search / retrieve button to search for a particular inventory item
+     - [X] think about the user experience and what the IT staff see when they visit the inventory   
+                management page
 
 # Schedule
 
@@ -79,42 +75,45 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
        - [x] url.py
        - [x] view.py after the models are completed think about he views and what the page should looks like 
 
-    - [ ] Setup the user management system to login into the inventory management
-    - [ ] add reCAPTCHA to register page and login page
+    - [X] Setup the user management system to login into the inventory management
+    - [X] add reCAPTCHA to register page and login page
 
 
-    - [ ] reminder  to commit each time I have completed a task 
+    - [X] reminder  to commit each time I have completed a task 
 
 
 
    ## Week 2
 
-     - [ ] Setup the page for listing all the inventory 
-     - [ ] Allow the user to search for all the inventory 
-     - [ ] reminder  to commit each time I have completed a task 
+     - [X] Setup the page for listing all the inventory 
+     - [X] Allow the user to search for all the inventory
+     - [X] Create a link to the Detail Page on the main Equipment Page and for the Search Results
+     - [X] reminder  to commit each time I have completed a task 
 
 
 
    ## Week 3
 
-     - [ ] CSS Style, try Materilize or Bootstrap check it is responsive
+     - [X] CSS Style, Bootstrap check it is responsive
      - [ ] Create a report list of items that need to ordered
-     - [ ] reminder to commit each time I have completed a task 
+     - [X] reminder to commit each time I have completed a task 
 
  ## After Class continue working on the following features:
 
      - [ ] add Cron to send an automated email reminder of the inventory levels each day to the manage
-     - [ ] add a excel to json converter to import the inventory list from accounting into the Web app database by uploading it or drag and drop
+     - [ ] add a excel to json converter to import the inventory list from accounting into the Web app database            by uploading it or drag and drop
 
      - [ ] add some charts showing the inventory levels 
-     - [ ] have an indicator that alert when an item is in the red zone meaning need to be orderd
-     - [ ] Use xlsx to read excel sheet with the IT equipment and upload it to the inventory management system see below for the links Matthew shared
+     - [ ] Create a report list of items that need to ordered
+     - [ ] have an indicator that alert the IT staff when an item is in the red zone meaning need to be orderd
+     - [ ] Use xlsx to read excel sheet with the IT equipment and upload it to the inventory management system              see below for the links Matthew shared
      - [ ] from excel export to a CSV - Matthew says that CSV files are easy to read
-          - [ ] Use the Built in Library for CSV in Python - CSV means (commas separated values) it is , value , value , value 
-            - [ ] right a costume management command that would open the CSV or xlsx file and read the data and put the data in my own database
-                - [ ] look the pokedex lab when we read the json file and put the file on the database I will be doing something similar to that which 
-                      we created a pokedex costome management file to handle the Json files but in my case instead of json file like the pokedex, I                          wll use a CSV files since the inventory the IT department receive come from DELL and other vendor as an excell file and I can  
-                       use this IT equipment reports and automate the uploading into the database to void entering manually. 
+          - [ ] Use the Built in Library for CSV in Python - CSV means (commas separated values) it is , value ,                 value , value 
+     - [ ] right a costume management command that would open the CSV or xlsx file and read the data and put the            data in my own database
+                - [ ] look the pokedex lab when we read the json file and put the file on the database I will be                       doing something similar to that which 
+                      we created a pokedex costome management file to handle the Json files but in my case       
+                      instead of json file like the pokedex, I wll use a CSV files since the inventory the IT                         department receive come from DELL and other vendor as an excell file and I can  
+                      use this IT equipment reports and automate the uploading into the database to void                               entering manually. 
    
 
 # Technology used:
@@ -165,23 +164,28 @@ Building a website app called "IT Inventory Management - Count IT" to aid the wi
      https://stackoverflow.com/questions/2942889/reading-parsing-excel-xls-files-with-python
      Stack OverflowStack Overflow
      How to read a .xlsx file using the pandas Library in iPython?
-     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All I could do up      until now is: import    
+     I want to read a .xlsx file using the Pandas Library of python and port the data to a postgreSQL table. All      I could do up      until now is: import    
      pandas as pd data = pd.ExcelFile("File Name") No...
      Stack OverflowStack Overflow
      Reading/parsing Excel (xls) files with Python
-     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package which is supported       by default in Python   
+     What is the best way to read Excel (XLS) files with Python (not CSV files). Is there a built-in package          which is supported by default in Python   
      to do this task?
-  -  User Login:  Using the Django user management authentication system                      https://docs.djangoproject.com/en/3.0/topics/auth/default/
-  - add bootstrap sample =  https://getbootstrap.com/docs/4.5/examples/
-  - add bootstrap sample = https://getbootstrap.com/docs/4.5/getting-started/introduction/
-  - Installed the Crispy forms in Django: pip3 install --upgrade django-crispy-forms https://pypi.org/project/django-crispy-  
-    forms/
-  - Installing django-crispy-forms https://django-crispy-forms.readthedocs.io/en/latest/install.html
-  - Django Crispy Forms - what are they about? = https://www.merixstudio.com/blog/django-crispy-forms-what-are-they-about/
-  - Form Sample Class Armadillo = https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/django/contacts_forms
-  - Class Armadillo tutorial on ussing forms = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Forms.md
-  - reCAPTCHA = https://developers.google.com/recaptcha/docs/versions
-  - reCAPTCHA admin = https://www.google.com/recaptcha/admin/create
+  -  User Login:  Using the Django user management authentication system:                                      
+     https://docs.djangoproject.com/en/3.0/topics/auth/default/
+  -  add bootstrap sample =  https://getbootstrap.com/docs/4.5/examples/
+  -  add bootstrap sample = https://getbootstrap.com/docs/4.5/getting-started/introduction/
+  -  Installed the Crispy forms in Django: pip3 install --upgrade django-crispy-forms            
+     https://pypi.org/project/django-crispy-  
+     forms/
+  -  Installing django-crispy-forms https://django-crispy-forms.readthedocs.io/en/latest/install.html
+  -  Django Crispy Forms - what are they about? = 
+     https://www.merixstudio.com/blog/django-crispy-forms-what-are-they-about/
+  -  Form Sample Class Armadillo =                    
+     https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/django/contacts_forms
+  -  Class Armadillo tutorial on ussing forms =       
+     https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Forms.md
+  -  reCAPTCHA = https://developers.google.com/recaptcha/docs/versions
+  -  reCAPTCHA admin = https://www.google.com/recaptcha/admin/create
   
 
 
