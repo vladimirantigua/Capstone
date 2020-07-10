@@ -464,6 +464,30 @@ def profile_page(request):
     return render(request, 'CountITapp/profile_page.html')
 
 
+# Stackoverflow answer how to do the password reset:
+
+# This is how you would check for old password - before the set_password,
+# https://stackoverflow.com/questions/16700968/check-existing-password-and-reset-password
+
+# user.check_password(request.POST['reset_password'])
+# #Also, check for password confirmation in the following way.
+
+# elif 'reset_password' in request.POST:
+#     old_password = request.POST['old_password'].strip()
+#     reset_password = request.POST['reset_password'].strip()
+#     new_password = request.POST['new_password'].strip()
+
+#     if old_password && reset_password && reset_password == new_password:
+#         saveuser = User.objects.get(id=user.id)
+#         if user.check_password(old_password):
+#             saveuser.set_password(request.POST['reset_password']);
+#             saveuser.save()
+
+#             userform = UserForm(instance=saveuser)
+
+#         return redirect('incident.views.about_me')
+
+
 # to send email report using Python:
 # https://stackoverflow.com/questions/52022134/how-do-i-schedule-an-email-to-send-at-a-certain-time-using-cron-and-smtp-in-pyt
 # import datetime as dt
