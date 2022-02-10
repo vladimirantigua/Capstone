@@ -7,18 +7,18 @@
 
 # Project Overview
 
-Building a website app called "IT Inventory Management - Count IT" to aid the with the inventory management with the IT deppartment from my former employer and any other company who wants to have an updated count the IT equipment. This project will be built with Django.
+Building a website app called "IT Inventory Management - Count IT" to aid with the inventory management for the IT deppartment from my former employer and any other company who would like to have an updated count of their IT equipment. This project will be built with Django, Python and Javascript.
 
 
 # Functionality
 
-  - [X] page list all the inventory items 
-  - [X] page create inventory items
-  - [X] page edit/update inventory items
+  - [X] page that list all the inventory items 
+  - [X] page to create inventory items
+  - [X] page that edit/update inventory items
  
   - [X] retrieve /search inventory items
 
-  ### Report Page color coded add a message if item is low or out of stoke
+  ### Report Page color coded add a message if item is low or out of stock
   - [X] Create a page that have the following functionalities:
    - [X] page that will have all the items listed in the following order: IT items with the lower quantity at            the top
      - [X] add color code to the items quantity: RED = if item is has 0 quantity. YELLOW = if item has quantity           of 40. GREEN = item quantity above 50
