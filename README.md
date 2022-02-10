@@ -7,23 +7,23 @@
 
 # Project Overview
 
-Building a website app called "IT Inventory Management - Count IT" to aid with the inventory management for the IT deppartment from my former employer and any other company who would like to have an updated count of their IT equipment. This project will be built with Django, Python and Javascript.
+Building a website app called "IT Inventory Management - Count IT" to aid with the inventory management for the IT department from my former employer and any other company who would like to have an updated count of their IT equipment. This project will be built with Django, Python and, Javascript.
 
 
 # Functionality
 
-  - [X] page that list all the inventory items 
-  - [X] page to create inventory items
-  - [X] page that edit/update inventory items
+  - [X] The page that lists all the inventory items 
+  - [X] The page to create inventory items
+  - [X] THe page that edits/update inventory items
  
   - [X] retrieve /search inventory items
 
-  ### Report Page color coded add a message if item is low or out of stock
-  - [X] Create a page that have the following functionalities:
-   - [X] page that will have all the items listed in the following order: IT items with the lower quantity at            the top
-     - [X] add color code to the items quantity: RED = if item is has 0 quantity. YELLOW = if item has quantity           of 40. GREEN = item quantity above 50
+  ### Report Page color-coded add a message if the item is low or out of stock
+  - [X] Create a page that has the following functionalities:
+   - [X] The page that will have all the items listed in the following order: IT items with the lower quantity at            the top
+     - [X] add color code to the quantity items: RED = if the item is has a 0 quantity. YELLOW = if the item has a quantity           of 40. GREEN = item quantity above 50
    - [ ] Create a report of the whole inventory to share with accounting and other managers (AFTER CLASS WILL BE          ADDED)
-     - [ ] setup an email notification send to the IT manager and IT admin responsible for the inventory        
+     - [ ] setup an email notification and forward it to the IT manager and IT admin responsible for the inventory        
            management about daily inventory levels. (AFTER CLASS WILL BE ADDED)
      - [ ] have a message on the profile page or the user homepage with a notification (AFTER CLASS WILL BE                 ADDED)
  
