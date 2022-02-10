@@ -28,8 +28,8 @@ Building a website app called "IT Inventory Management - Count IT" to aid with t
      - [ ] have a message on the profile page or the user homepage with a notification (AFTER CLASS WILL BE                 ADDED)
  
   ### Login
-  - [X] add a login with username and password so the IT Team can login to Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accure count of the items in stock and items that need to be reoreded for the next quarte orders.
-    - [X] Matthew suggest look the user management sytems he demo in class to use as an example to build my user management systems for my Capstone
+  - [X] add login with username and password so the IT Team can login to the Inventory Manager Website from their laptops or company cellphones to update the inventory each day as the IT Team is utilizing the IT equipment each day. This will allow the IT Team to provide a more accurate count of the items in stock and items that need to be re-oreded for the next quarter's orders.
+    - [X] Matthew suggests looking at the user management systems he demos in class to use as an example to build my user management systems for my Capstone
    
 
 # Data Models
@@ -55,13 +55,13 @@ Building a website app called "IT Inventory Management - Count IT" to aid with t
 
 
 # Template
-  - [X] Homepage will be leasting all the inventory
+  - [X] The homepage will be listing all the inventory
      - [X] Login Page for the - IT staff will be login in to help manage the inventory
      - [X] Registration page for the - IT staff to register to create an account to access the inventory management
      - [X] User profile page in case the - IT staff would like to update their inventory management registration account
-     - [X] Home page will be the main Equipment Page list all the inventory items 
-     - [X] Index page user will be able to see selete an option to login or register
-     - [X] Detail page list individual item from Detail Page I am able to update that item. see if I can add a              photo for each of the laptop models to show on the detail page
+     - [X] The homepage will be the main Equipment Page listing all the inventory items 
+     - [X] Index page users will be able to select an option to login or register
+     - [X] Detail page list individual item from the Detail Page I can to update that item. see if I can add a              photo for each of the laptop models to show on the detail page
      - [X] Add Equipment to create and submit new equipment manually 
      - [X] search / retrieve button to search for a particular inventory item
      - [X] think about the user experience and what the IT staff see when they visit the inventory   
@@ -98,7 +98,7 @@ Building a website app called "IT Inventory Management - Count IT" to aid with t
      - [ ] Create a report list of items that need to ordered
      - [X] reminder to commit each time I have completed a task 
 
- ## After Class continue working on the following features:
+ ## After the conclusing of the coding bootcamp continue working on the following features:
 
      - [ ] add Cron to send an automated email reminder of the inventory levels each day to the manage
      - [ ] add a excel to json converter to import the inventory list from accounting into the Web app database            by uploading it or drag and drop
